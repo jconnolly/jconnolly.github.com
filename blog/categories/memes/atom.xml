@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Memes | John E. Connolly]]></title>
+  <link href="http://jconnolly.github.io/blog/categories/memes/atom.xml" rel="self"/>
+  <link href="http://jconnolly.github.io/"/>
+  <updated>2015-12-01T10:00:32-05:00</updated>
+  <id>http://jconnolly.github.io/</id>
+  <author>
+    <name><![CDATA[John E. Connolly]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Keep It Light: Create an Animated Gif]]></title>
+    <link href="http://jconnolly.github.io/blog/2015/10/19/keep-it-light-create-an-animated-gif/"/>
+    <updated>2015-10-19T17:21:00-04:00</updated>
+    <id>http://jconnolly.github.io/blog/2015/10/19/keep-it-light-create-an-animated-gif</id>
+    <content type="html"><![CDATA[<h2>Rationale</h2>
+
+<hr/>
+
+
+<p><br/>
+Maybe you&rsquo;re a lurker on <a href="http://reddit.com">reddit</a>, or maybe you&rsquo;ve got a coworker who is always circulating animated gifs of <a href="http://media.giphy.com/media/36in05WSMy7vO/giphy.gif">kittens dressed up as pandas</a>. Either way, if you&rsquo;ve ended up here, you&rsquo;re probably wondering how exactly those gifs are made. More than likely though, you&rsquo;re a CSE300 classmate, so hello!</p>
+
+<p>This tutorial shows how to use commonly available command line tools to create <em>your own</em> animated gifs to share.
+<br/>
+<br/>
+<br/></p>
+
+<h2>Prerequisites</h2>
+
+<hr/>
+
+
+<p><br/></p>
+
+<p>The following instructions presume you&rsquo;re working with OSX, though if you&rsquo;re using linux you should have an easy time following along. If you&rsquo;ve already got <strong>youtube-dl ffmpeg and gifsicle</strong> installed you should skip down to &ldquo;Create the gif&rdquo;.</p>
+
+<h1>0.1) Launch the terminal</h1>
+
+<p>Launch the terminal by hitting ⌘+[spacebar] and typing &ldquo;Terminal&rdquo; in Spotlight Search:</p>
+
+<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Terminal.png" width="500" height="350"></p>
+
+<h1>0.2) Install <a href="http://brew.sh/">homebrew</a></h1>
+
+<p>Install <a href="http://brew.sh/">homebrew</a>. It&rsquo;s a package manager for installing fun tools for the command line. Paste this into your terminal:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ruby -e <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">$(</span>curl -fsSL &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/Homebrew/install/master/install&quot;</span>&gt;https://raw.githubusercontent.com/Homebrew/install/master/install&lt;/a&gt;<span class="k">)</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h1>Enter your password</h1>
+
+<p>homebrew will verify that you want to install, just hit [Enter]. The installer will then prompt you for your password. Don&rsquo;t worry, it&rsquo;s just trying to install itself into a directory that requires your permission to create. Enter your password:</p>
+
+<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Homebrew.png" width="500" height="350"></p>
+
+<p>homebrew will download and install itself and you&rsquo;ll return to your shell prompt.</p>
+
+<h1>0.3) Install ffmpeg, youtube-dl, and gifsicle</h1>
+
+<p>Now that you&rsquo;ve got homebrew, you can install the software we&rsquo;ll be using for this tutorial. Copy below and enter it into your Terminal:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew install youtube-dl ffmpeg gifsicle
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>You&rsquo;ll see output similar to below, where homebrew is fetching and downloading the software and its dependencies. This may take a few minutes, especially if you didn&rsquo;t have homebrew previously installed:</p>
+
+<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Install.png" width="500" height="350"></p>
+
+<p>Congratulations! You now have the software required to follow the remainder of the tutorial.
+<br/>
+<br/>
+<br/></p>
+
+<h2>Create the gif</h2>
+
+<hr/>
+
+
+<p><br/>
+We&rsquo;re now ready to create the gif.</p>
+
+<h1>1) Find your youtube video</h1>
+
+<p>Find the youtube clip you&rsquo;d like to immortalize as an animated gif. I chose a clip from one of my favorite movies, <a href="http://www.imdb.com/title/tt0071853/">Monty Python and the Holy Grail</a>.</p>
+
+<p>While at the video of your choice, copy the URL from the address bar in your browser.</p>
+
+<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Youtube.png" width="500" height="350"></p>
+
+<h1>2) Download it</h1>
+
+<p>In your terminal window, change directories into <strong>/tmp</strong> where we&rsquo;ll be doing our work.
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd /tmp</span></code></pre></td></tr></table></div></figure>
+Now download your clip with youtube-dl, replacing &lt;YOUR_URL&gt; with the URL you copied earlier.
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>youtube-dl &lt;YOUR_URL> -o out.mp4</span></code></pre></td></tr></table></div></figure></p>
+
+<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Youtubedl.png" width="500" height="350"></p>
+
+<h1>3) Edit it with ffmpeg</h1>
+
+<p>Here we&rsquo;ll edit the video and encode it into a looping gif format. You&rsquo;ll want to note the time in the clip you selected before proceeding. In my case, I want the moment where John Cleese, as a French soldier, childishly taunts Arthur from his castle perch, at <em>2 minutes</em>, <em>0 seconds</em> and <em>500 milliseconds</em> (note that it&rsquo;s dot for milliseconds). If you&rsquo;re not sure of the exact time, don&rsquo;t worry, you can do the below a few times and find the exact time:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ffmpeg -i out.mp4 -s 600x400 -pix_fmt rgb8 -f gif -ss 00:02:00.500 -t <span class="m">4</span> - <span class="p">|</span> gifsicle <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">optimize</span><span class="o">=</span><span class="m">3</span> <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">delay</span><span class="o">=</span><span class="m">3</span> &gt; ~/Desktop/out.gif
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/ffmpeg.png" width="500" height="350"></p>
+
+<p>The only values you&rsquo;re likely to want to change are the <strong>-ss 00:02:00.500</strong> and <strong>-t 4</strong> fields. Adjust those to indicate what section of the whole youtube clip you&rsquo;d like to select for your gif. A little trial and error will help you figure out those fields.</p>
+
+<p>That&rsquo;s it! To view your gif, I suggest opening it with your browser. Open <strong>Finder</strong> to your desktop, right click on out.gif and select &ldquo;Google Chrome&rdquo; or your other favorite browser. Then if you want to make edits to the timeline, you can just refresh the page.</p>
+
+<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/finder.png" width="500" height="350"></p>
+
+<h1>4) Upload it to imgur</h1>
+
+<p>Now that you&rsquo;ve got your gif, head over to <a href="https://imgur.com">imgur</a> to upload it and <a href="http://imgur.com/0YD6rnw">forever immortalize your gif in history.</a>.</p>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="0YD6rnw"><a href="//imgur.com/0YD6rnw">View post on imgur.com</a></blockquote>
+
+
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
+<p>Happy gifing!</p>
+]]></content>
+  </entry>
+  
+</feed>
