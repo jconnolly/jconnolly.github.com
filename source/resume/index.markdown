@@ -52,6 +52,7 @@ Work Experience
     <br/>
    Member of a three-engineer team building a Ruby on Rails and Ember.js based small-business lending web application. Responsible for backend systems that pulled credit for loan applicants, transactional and batch email processes, monitoring. Used Heroku, AWS, RabbitMQ, Stripe among other technologies and systems. Light frontend experience.
    <br/>
+   <br/>
   <div style="border-bottom: 1px solid black;overflow:hidden">
   <div style="float:left">PureSilicon</div><div style="float:right">Winter 2012</div>
   </div>

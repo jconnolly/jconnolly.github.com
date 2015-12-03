@@ -13,6 +13,7 @@ Professional Work:
 =============
 ### *TheLadders.com*
 <i class="fa fa-code"></i>&nbsp; &nbsp; &nbsp; [Developer Blog](http://dev.theladders.com): I revamped and restarted TheLadders developer blog in an effort to attract more engineering talent to the company. I sunsetted the old Wordpress powered blog in favor of a custom-themed Octopress-powered site.
+
 <i class="fa fa-code"></i>&nbsp; &nbsp; &nbsp; [Denormalize The Data For Great Good](http://dev.theladders.com/2013/07/denormalize-the-datas-for-great-good/): this is a blog post I wrote for TheLadders developer blog. It outlines work I did speeding up response times in our SOA, microservice-based architecture using a NoSQL data store.
 
 ### *BugLabs, Inc.*
