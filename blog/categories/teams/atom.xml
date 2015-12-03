@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Teams | John E. Connolly]]></title>
   <link href="http://jconnolly.github.io/blog/categories/teams/atom.xml" rel="self"/>
   <link href="http://jconnolly.github.io/"/>
-  <updated>2015-12-02T23:02:13-05:00</updated>
+  <updated>2015-12-03T09:46:16-05:00</updated>
   <id>http://jconnolly.github.io/</id>
   <author>
     <name><![CDATA[John E. Connolly]]></name>
@@ -44,7 +44,7 @@ Maybe you&rsquo;re a lurker on <a href="http://reddit.com">reddit</a>, or maybe 
 
 <p>Launch the terminal by hitting ⌘+[spacebar] and typing &ldquo;Terminal&rdquo; in Spotlight Search:</p>
 
-<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Terminal.png" width="500" height="350"></p>
+<p><img class="center" src="/images/keep-it-light-create-an-animated-gif/Terminal.png" width="500" height="350"></p>
 
 <h1>0.2) Install <a href="http://brew.sh/">homebrew</a></h1>
 
@@ -55,7 +55,7 @@ Maybe you&rsquo;re a lurker on <a href="http://reddit.com">reddit</a>, or maybe 
 
 <p>homebrew will verify that you want to install, just hit [Enter]. The installer will then prompt you for your password. Don&rsquo;t worry, it&rsquo;s just trying to install itself into a directory that requires your permission to create. Enter your password:</p>
 
-<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Homebrew.png" width="500" height="350"></p>
+<p><img class="center" src="/images/keep-it-light-create-an-animated-gif/Homebrew.png" width="500" height="350"></p>
 
 <p>homebrew will download and install itself and you&rsquo;ll return to your shell prompt.</p>
 
@@ -67,7 +67,7 @@ Maybe you&rsquo;re a lurker on <a href="http://reddit.com">reddit</a>, or maybe 
 
 <p>You&rsquo;ll see output similar to below, where homebrew is fetching and downloading the software and its dependencies. This may take a few minutes, especially if you didn&rsquo;t have homebrew previously installed:</p>
 
-<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Install.png" width="500" height="350"></p>
+<p><img class="center" src="/images/keep-it-light-create-an-animated-gif/Install.png" width="500" height="350"></p>
 
 <p>Congratulations! You now have the software required to follow the remainder of the tutorial.
 <br/>
@@ -88,7 +88,7 @@ We&rsquo;re now ready to create the gif.</p>
 
 <p>While at the video of your choice, copy the URL from the address bar in your browser.</p>
 
-<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Youtube.png" width="500" height="350"></p>
+<p><img class="center" src="/images/keep-it-light-create-an-animated-gif/Youtube.png" width="500" height="350"></p>
 
 <h1>2) Download it</h1>
 
@@ -97,7 +97,7 @@ We&rsquo;re now ready to create the gif.</p>
 Now download your clip with youtube-dl, replacing &lt;YOUR_URL&gt; with the URL you copied earlier.
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">youtube-dl &lt;YOUR_URL&gt; -o out.mp4</code></pre></div></p>
 
-<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Youtubedl.png" width="500" height="350"></p>
+<p><img class="center" src="/images/keep-it-light-create-an-animated-gif/Youtubedl.png" width="500" height="350"></p>
 
 <h1>3) Edit it with ffmpeg</h1>
 
@@ -105,13 +105,13 @@ Now download your clip with youtube-dl, replacing &lt;YOUR_URL&gt; with the URL 
 
 <p><div class="highlight"><pre><code class="language-bash" data-lang="bash">ffmpeg -i out.mp4 -s 600x400 -pix_fmt rgb8 -f gif -ss 00:02:00.500 -t <span class="m">4</span> - <span class="p">|</span> gifsicle <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">optimize</span><span class="o">=</span><span class="m">3</span> <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">delay</span><span class="o">=</span><span class="m">3</span> &gt; ~/Desktop/out.gif</code></pre></div></p>
 
-<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/ffmpeg.png" width="500" height="350"></p>
+<p><img class="center" src="/images/keep-it-light-create-an-animated-gif/ffmpeg.png" width="500" height="350"></p>
 
 <p>The only values you&rsquo;re likely to want to change are the <strong>-ss 00:02:00.500</strong> and <strong>-t 4</strong> fields. Adjust those to indicate what section of the whole youtube clip you&rsquo;d like to select for your gif. A little trial and error will help you figure out those fields.</p>
 
 <p>That&rsquo;s it! To view your gif, I suggest opening it with your browser. Open <strong>Finder</strong> to your desktop, right click on out.gif and select &ldquo;Google Chrome&rdquo; or your other favorite browser. Then if you want to make edits to the timeline, you can just refresh the page.</p>
 
-<p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/finder.png" width="500" height="350"></p>
+<p><img class="center" src="/images/keep-it-light-create-an-animated-gif/finder.png" width="500" height="350"></p>
 
 <h1>4) Upload it to imgur</h1>
 
