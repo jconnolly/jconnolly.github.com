@@ -5,6 +5,8 @@ date: 2015-12-02 17:40
 comments: false
 sharing: false
 footer: false
+image:
+  feature: /images/fractal.png
 ---
 
 Professional Work:
@@ -26,14 +28,14 @@ Coursework:
   a mock proposal targeting the ACM, IEEE, and other professional Software Engineering organizations for the purpose of securing buy-in for building a platform to crowdsource professionalization standards for the industry.
 
 ### CSE391 *Cloud Computing*
-
 * [Simple Scalable Wiki](https://github.com/jconnolly/cse391-wiki): A simple wiki web application, powered by [dropwizard](http://dropwizard.io), [couchbase](http://couchbase.com), [solr](http://lucene.apache.org/solr/), [RabbitMQ](http://rabbitmq.com), and more. The goal was to make it horizontally scalable based on elastic computing resources.
+
 * [Web Search with Autosuggest](https://github.com/jconnolly/cse391-search): A simple search application, restricted to the stonybrook.edu domain, with a google-like "autocomplete" feature.
--------------
+
+-----------
 
 Academic Research
 =============
 
 ### *Group for Logic and Formal Semantics*
-
 * [Modeling Prejudice Reduction: Spatialized Game Theory and the Contact Hypothesis](http://www.pgrim.org/articles/mprforthcomingd.pdf) was published in MIT's [Artificial Life](http://www.mitpressjournals.org/loi/artl) and [Public Affairs Quarterly](http://www.press.uillinois.edu/journals/paq.html). It used an iterated form of Prisoner's Dilemma in both spatial and global competitions to model prejudice and hypothesize methods of reducing prejudicial behavior.

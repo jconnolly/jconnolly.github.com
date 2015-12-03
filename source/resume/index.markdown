@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Resumé"
 date: 2015-12-01 10:05
 comments: false
