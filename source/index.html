@@ -1,0 +1,30 @@
+---
+layout: default
+title: A Portfolio and Blog by John Connolly 
+description: "A Portfolio and Blog by John Connolly. Mostly concerned with Software Development and occasionally Computer Science."
+categories: [Software Development, Computer Science, Personal]
+keywords: compsci softwaredevelopment jeconnol jconnolly
+image:
+  feature: /images/Swimminghole.jpg
+---
+
+{% assign index = true %}
+{% for post in paginator.posts %}
+<article class="hentry">
+  {% include article.html %}
+</article><!-- /.hentry -->
+{% endfor %}
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <a href="/" class="btn">Previous</a>
+    {% else %}
+      <a href="{{ root_url }}{ paginator.previous_page_path }}" class="btn">Previous</a>
+    {% endif %}
+  {% endif %}
+  <a href="{{ root_url }}/archives">Blog Archives</a>
+  {% if paginator.next_page %}
+    <a href="{{ root_url }}{{ paginator.next_page_path }}" class="btn">Next</a>
+  {% endif %}
+</div><!-- /.pagination -->
