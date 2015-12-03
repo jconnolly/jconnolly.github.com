@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://jconnolly.github.io
-title: John E. Connolly 
-subtitle: My Portfolio, My Blog, and Me 
-author: John E. Connolly 
+title: John E. Connolly
+subtitle: Musings on Software Engineering
+author: John E. Connolly
 simple_search: https://www.google.com/search
 description: My Portfolio and Blog site built for CSE300
 author_bio: I'm a Software Engineer interested in problems of scale.

@@ -23,7 +23,7 @@ Coursework:
 =============
 
 ### CSE300 *Technical Communications*
-* [Mock PR Release](/assets/Connolly_Press_Release.pdf) a press release announcing the release of a platform for crowdsourcing inpot for the professionalization of Software Engineering.
+* [Mock Press Release](/assets/Connolly_Press_Release.pdf) a press release announcing the release of a platform for crowdsourcing inpot for the professionalization of Software Engineering.
 * [Mock Proposal](/assets/Connolly_Proposal.pdf): 
   a mock proposal targeting the ACM, IEEE, and other professional Software Engineering organizations for the purpose of securing buy-in for building a platform to crowdsource professionalization standards for the industry.
 
