@@ -28,6 +28,14 @@
 
 <!-- Twitter Cards -->
 
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content"">
+  
+  <meta name="twitter:title" content="Keep it light: create an animated gif">
+  <meta name="twitter:description" content="My Portfolio and Blog site built for CSE300">
+  <meta name="twitter:creator" content="@johnconnolly">
+
 
 <!-- Open Graph -->
 <meta property="og:local" content="en_US">
@@ -61,7 +69,7 @@
 <body id="post" >
 
 <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
-<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">	
 	<button class="dl-trigger">Open Menu</button>
 	<ul class="dl-menu">
 		<li><a href="/">Home</a></li>
@@ -69,15 +77,27 @@
 			<a href="#">About</a>
 			<ul class="dl-submenu">
 				<li>
-					<img src="" alt="John E. Connolly photo" class="author-photo">
+					<img src="/images/avatar.png" alt="John E. Connolly photo" class="author-photo">
 					<h4>John E. Connolly</h4>
-					<p></p>
+					<p>I'm a Software Engineer interested in problems of scale.</p>
+				</li>
+				<li>
+				  <a href="/resume"><i class="fa fa-file-text-o"></i>Resume</a>
+				</li>
+				<li>
+				  <a href="/coursework"><i class="fa fa-code"></i>Portfolio</a>
 				</li>
 				
+				<li>
+					<a href="mailto:jeconnol@gmail.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/johnconnolly"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
 				
-				
-				
-				
+				<li>
+					<a href="https://github.com/jconnolly"><i class="fa fa-github"></i> GitHub</a>
+				</li>
 				
 			</ul><!-- /.dl-submenu -->
 		</li>
@@ -138,9 +158,7 @@ Maybe you&rsquo;re a lurker on <a href="http://reddit.com">reddit</a>, or maybe 
 
 <p>Install <a href="http://brew.sh/">homebrew</a>. It&rsquo;s a package manager for installing fun tools for the command line. Paste this into your terminal:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ruby -e <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ruby -e <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></code></pre></div>
 
 
 <h1>Enter your password</h1>
@@ -155,9 +173,7 @@ Maybe you&rsquo;re a lurker on <a href="http://reddit.com">reddit</a>, or maybe 
 
 <p>Now that you&rsquo;ve got homebrew, you can install the software we&rsquo;ll be using for this tutorial. Copy below and enter it into your Terminal:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew install youtube-dl ffmpeg gifsicle
-</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install youtube-dl ffmpeg gifsicle</code></pre></div>
 
 
 <p>You&rsquo;ll see output similar to below, where homebrew is fetching and downloading the software and its dependencies. This may take a few minutes, especially if you didn&rsquo;t have homebrew previously installed:</p>
@@ -189,14 +205,12 @@ We&rsquo;re now ready to create the gif.</p>
 
 <p>In your terminal window, change directories into <strong>/tmp</strong> where we&rsquo;ll be doing our work.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd /tmp</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /tmp</code></pre></div>
 
 
 <p>Now download your clip with youtube-dl, replacing &lt;YOUR_URL&gt; with the URL you copied earlier.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>youtube-dl &lt;YOUR_URL> -o out.mp4</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">youtube-dl &lt;YOUR_URL&gt; -o out.mp4</code></pre></div>
 
 
 <p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/Youtubedl.png" width="500" height="350"></p>
@@ -205,9 +219,7 @@ We&rsquo;re now ready to create the gif.</p>
 
 <p>Here we&rsquo;ll edit the video and encode it into a looping gif format. You&rsquo;ll want to note the time in the clip you selected before proceeding. In my case, I want the moment where John Cleese, as a French soldier, childishly taunts Arthur from his castle perch, at <em>2 minutes</em>, <em>0 seconds</em> and <em>500 milliseconds</em> (note that it&rsquo;s dot for milliseconds). If you&rsquo;re not sure of the exact time, don&rsquo;t worry, you can do the below a few times and find the exact time:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ffmpeg -i out.mp4 -s 600x400 -pix_fmt rgb8 -f gif -ss 00:02:00.500 -t <span class="m">4</span> - <span class="p">|</span> gifsicle --optimize<span class="o">=</span><span class="m">3</span> --delay<span class="o">=</span><span class="m">3</span> &gt; ~/Desktop/out.gif
-</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ffmpeg -i out.mp4 -s 600x400 -pix_fmt rgb8 -f gif -ss 00:02:00.500 -t <span class="m">4</span> - <span class="p">|</span> gifsicle --optimize<span class="o">=</span><span class="m">3</span> --delay<span class="o">=</span><span class="m">3</span> &gt; ~/Desktop/out.gif</code></pre></div>
 
 
 <p><img class="center {{ root_url" src="}}/assets/images/keep-it-light-create-an-animated-gif/ffmpeg.png" width="500" height="350"></p>
