@@ -23,7 +23,16 @@ jeconnol@gmail.com
 <br/>
 Work Experience
 -------------
-* **TheLadders.com**
+* **CooCoo SMS Inc.**
+  <br/>
+  <div style="border-bottom: 1px solid black;overflow:hidden">
+    <div style="float:left">Huntington, NY</div>
+    <div style="float:right">2015-Present</div>
+  </div>
+    * *Senior Software Engineer*
+    <br/>
+    Team leadership position. Member of the API Team, designing, maintaining, and implementing APIs and backend services to service 10+ Mobile Ticketing applications, in-house products, ETL processes and real-time integration services. Designed and implemented a scalable, asynchronous middleware layer with a Fortune500 partner in the transit space. Proposed, designed, implemented and deployed full-stack monitoring and alerting infrastructure. Primary developer in the “devops” strategy. Led an effort to instill a rigorous, quality-focused engineering culture. Responsible for translating high-level requirements into specifications and implementations across different teams. Technologies included: Java, JAX-RS, Wildfly, ActiveJDBC, MySQL, Apache Camel, Amazon SQS, RabbitMQ, AWS, Chef, CentOS, bash, Jenkins.
+ * **TheLadders.com**
   <br/>
   <div style="border-bottom: 1px solid black;overflow:hidden">
     <div style="float:left">New York, NY</div>
@@ -33,6 +42,7 @@ Work Experience
     <br/>
     Member of the Platform Team, primarily working on backend SOA systems to power a 10M+ user, job-matching website. Responsible for monitoring infrastructure, internal libraries, and applications. Primarily using JVM languages like Java, Scala and Clojure to build distributed systems and RESTful services underlying our main web application. Intimately familiar with writing code and maintaining infrastructure for technologies like Storm, ElasticSearch, Graphite, Jetty, Couchbase, Riak. Lots of scripting (bash, Python, Ruby, Clojure) to automate business and infrastructure tasks and alerting. Replaced unpredictable failing systems with reliable queue-based application workflows. Worked with growth team on ETL work for email campaigns, data science team to provide data and sandbox infrastructure, and product team on web app and front-end features using Jetty and Backbone. Maintained company developer blog. Advocated for and used Test Driven Development, code reviews, and Domain Driven Design.
 * **Bug Labs Inc.**
+  <br/>
   <div style="border-bottom: 1px solid black;overflow:hidden">
     <div style="float:left">New York, NY</div>
     <div style="float:right">2012-2015</div>
