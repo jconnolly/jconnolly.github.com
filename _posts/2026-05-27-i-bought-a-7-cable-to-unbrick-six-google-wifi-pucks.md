@@ -10,8 +10,6 @@ description: >
   console command. Here's the whole journey.
 ---
 
-# I bought a $7 cable on eBay to unbrick six Google WiFi pucks from my Mac
-
 Working title candidates, in case the one above is too long:
 
 - "How a $1 screwdriver and a $7 cable beat Google's firmware lockout on the AC-1304"
