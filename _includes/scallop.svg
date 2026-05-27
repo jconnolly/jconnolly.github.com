@@ -1,0 +1,26 @@
+<svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 92" fill="currentColor" aria-hidden="true">
+  <!-- 13 ribs as wedge paths radiating from a hinge point at bottom.
+       Each rib is a thin wedge; the gaps between them stay transparent
+       so the shell reads as dark with negative-space slits.
+       Hinge butt at the bottom is its own rectangle. -->
+  <g stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" fill="currentColor">
+    <!-- center rib -->
+    <path d="M 50 78 L 47 8 L 53 8 Z"/>
+    <!-- right side ribs (mirror with negative) -->
+    <path d="M 50 78 L 56 9 L 62 11 Z"/>
+    <path d="M 50 78 L 64 12 L 70 17 Z"/>
+    <path d="M 50 78 L 72 19 L 78 26 Z"/>
+    <path d="M 50 78 L 79 28 L 84 36 Z"/>
+    <path d="M 50 78 L 85 39 L 89 49 Z"/>
+    <path d="M 50 78 L 90 52 L 93 64 Z"/>
+    <!-- left side ribs -->
+    <path d="M 50 78 L 44 9 L 38 11 Z"/>
+    <path d="M 50 78 L 36 12 L 30 17 Z"/>
+    <path d="M 50 78 L 28 19 L 22 26 Z"/>
+    <path d="M 50 78 L 21 28 L 16 36 Z"/>
+    <path d="M 50 78 L 15 39 L 11 49 Z"/>
+    <path d="M 50 78 L 10 52 L 7 64 Z"/>
+  </g>
+  <!-- hinge: rectangular butt with cut-out V at the top -->
+  <path d="M 35 78 L 65 78 L 65 88 L 35 88 Z M 50 78 L 42 82 L 50 86 L 58 82 Z" fill-rule="evenodd"/>
+</svg>

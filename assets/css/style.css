@@ -71,12 +71,9 @@ body {
   color: var(--ink);
 }
 .brand-mark {
-  width: 1.5rem;
-  height: 1.5rem;
-  object-fit: contain;
-}
-@media (prefers-color-scheme: dark) {
-  .brand-mark { filter: invert(1); }
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--ink);
 }
 .brand-name {
   font-family: var(--sans);
