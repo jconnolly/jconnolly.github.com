@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<section class="intro">
+  {{ content }}
+</section>
+
+<section class="post-list">
+  {% for post in site.posts %}
+    <article class="post-entry">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      </p>
+      {% if post.description %}
+        <p class="post-summary">{{ post.description | strip_html | truncate: 280 }}</p>
+      {% else %}
+        <p class="post-summary">{{ post.excerpt | strip_html | truncate: 280 }}</p>
+      {% endif %}
+    </article>
+  {% endfor %}
+</section>

@@ -1,6 +1,7 @@
 ---
-icon: fas fa-info-circle
-order: 4
+layout: page
+title: about
+permalink: /about/
 ---
 
 John Connolly. Software engineer based on Long Island.

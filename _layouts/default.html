@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  {% seo %}
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} feed" href="/feed.xml">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="/">
+      <img class="brand-mark" src="/assets/img/scallop.png" alt="" width="28" height="28">
+      <span class="brand-name">{{ site.title }}</span>
+    </a>
+    <nav>
+      <a href="/">posts</a>
+      <a href="/about/">about</a>
+      <a href="/feed.xml">feed</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }} &middot; <a href="/feed.xml">feed</a> &middot; <a href="https://github.com/jconnolly">github</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* ollyconn — minimal LaTeX-ish blog theme
+   serif body, monospace code, narrow column, plenty of whitespace
+   black-and-white only, no gradients, no shadows */
+
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --paper: #fafaf7;
+  --rule: #c8c8c2;
+  --link: #1a1a1a;
+  --code-bg: #f0eee8;
+  --serif: "Iowan Old Style", "Charter", "Palatino Linotype", "Palatino", Georgia, "Times New Roman", Times, serif;
+  --mono: "SF Mono", "Berkeley Mono", "IBM Plex Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e4d8;
+    --ink-soft: #9c9789;
+    --paper: #1a1816;
+    --rule: #3a3631;
+    --link: #e8e4d8;
+    --code-bg: #26221d;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* header */
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand-mark {
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+  filter: invert(0);
+}
+@media (prefers-color-scheme: dark) {
+  .brand-mark { filter: invert(1); }
+}
+.brand-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+}
+.masthead nav { display: flex; gap: 1rem; }
+.masthead nav a {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.masthead nav a:hover { color: var(--ink); text-decoration: underline; }
+
+/* main */
+main { min-height: 60vh; }
+
+/* typography */
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  margin: 2.2em 0 0.6em;
+}
+h1 { font-size: 1.8rem; margin-top: 0.2em; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem; }
+h4 { font-size: 1rem; font-style: italic; }
+
+p, ul, ol, blockquote, pre, table { margin: 0 0 1em; }
+p, li { font-size: 1rem; }
+
+ul, ol { padding-left: 1.4em; }
+li + li { margin-top: 0.2em; }
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  padding-left: 0.9em;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5em 0;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+/* code */
+code, pre, kbd, samp {
+  font-family: var(--mono);
+  font-size: 0.86rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+pre {
+  background: var(--code-bg);
+  padding: 0.9em 1em;
+  overflow-x: auto;
+  border-radius: 2px;
+  line-height: 1.45;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.86rem;
+}
+
+/* tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.45em 0.75em;
+  border-bottom: 1px solid var(--rule);
+}
+th { font-weight: 600; }
+
+/* images */
+img { max-width: 100%; height: auto; display: block; margin: 1.5em 0; }
+
+/* post */
+.post-header h1 { font-size: 2rem; margin-bottom: 0.2em; line-height: 1.2; }
+.post-meta {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0 0 2.5em;
+}
+
+/* home (post list) */
+.intro { margin-bottom: 2.5em; }
+.post-entry { margin: 0 0 2.2em; padding-bottom: 1.5em; border-bottom: 1px solid var(--rule); }
+.post-entry:last-child { border-bottom: none; }
+.post-entry h2 {
+  margin: 0 0 0.3em;
+  font-size: 1.25rem;
+}
+.post-entry h2 a {
+  text-decoration: none;
+}
+.post-entry h2 a:hover {
+  text-decoration: underline;
+}
+.post-entry .post-meta { margin-bottom: 0.5em; }
+.post-summary { color: var(--ink-soft); margin: 0; }
+
+/* footer */
+footer {
+  margin-top: 5em;
+  padding-top: 1.25em;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+}
+footer a { color: var(--ink-soft); }
