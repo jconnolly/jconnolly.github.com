@@ -267,7 +267,9 @@ The HW write-protect screw doing double duty as a CCD-UART unlock was not in any
 
 `enable_dev_usb_boot` printing SUCCESS while silently failing is a UX choice. I get why the script doesn't want to scare you, but a non-zero exit code when the underlying crossystem call returned (error) would have saved me about two hours.
 
-The rubberducking-with-an-AI thing: it works mostly because of the friction. Claude was super confident at every step that the path I was on was right, then super confident at every dead end that there was no other path. When I made it look again, it would. Looking again is most of the value. The "this is impossible" conclusion is rarely actually impossible, it's "I've stopped looking." Make it look.
+The rubberducking-with-an-AI thing works, but the actual skill isn't "make it look." Claude is happy to look. Claude is also happy to hallucinate a solution that keeps you happy, or to confidently give up so the conversation keeps moving. Both feel like progress. Both are wrong when there's something on the other side of the wall.
+
+What engineers with the gray hairs and the horror stories know, and what an AI doesn't, is that the wall almost always has more behind it. The job is to trust that hunch and then make sure you've actually ruled out every unpursued avenue before you let "this is impossible" stand. Stay methodical, keep redirecting, exhaust the actual surface area. The AI is a great pair for that part: patient, fast, doesn't get tired, doesn't get embarrassed. But it's not going to tell you when to keep looking. That part is still on you.
 
 ## code and notes
 
