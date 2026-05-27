@@ -10,7 +10,7 @@ tags: [ffmpeg, youtube-dl, gifsicle, macos, gif]
 
 ---
 
-Maybe you’re a lurker on [reddit](http://reddit.com), or maybe you’ve got a coworker who is always circulating animated gifs of [kittens dressed up as pandas](http://media.giphy.com/media/36in05WSMy7vO/giphy.gif). Either way, if you’ve ended up here, you’re probably wondering how exactly those gifs are made. More than likely though, you’re a CSE300 classmate, so hello!
+Maybe you’re a lurker on [reddit](https://reddit.com), or maybe you’ve got a coworker who is always circulating animated gifs of [kittens dressed up as pandas](https://media.giphy.com/media/36in05WSMy7vO/giphy.gif). Either way, if you’ve ended up here, you’re probably wondering how exactly those gifs are made. More than likely though, you’re a CSE300 classmate, so hello!
 
 This tutorial shows how to use commonly available command line tools to create *your own* animated gifs to share.
 
@@ -26,9 +26,9 @@ Launch the terminal by hitting ⌘+[spacebar] and typing “Terminal” in Spotl
 
 ![](/images/keep-it-light-create-an-animated-gif/Terminal.png)
 
-## 0.2) Install [homebrew](http://brew.sh/)
+## 0.2) Install [homebrew](https://brew.sh/)
 
-Install [homebrew](http://brew.sh/). It’s a package manager for installing fun tools for the command line. Paste this into your terminal:
+Install [homebrew](https://brew.sh/). It’s a package manager for installing fun tools for the command line. Paste this into your terminal:
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -64,7 +64,7 @@ We’re now ready to create the gif.
 
 ## 1) Find your youtube video
 
-Find the youtube clip you’d like to immortalize as an animated gif. I chose a clip from one of my favorite movies, [Monty Python and the Holy Grail](http://www.imdb.com/title/tt0071853/).
+Find the youtube clip you’d like to immortalize as an animated gif. I chose a clip from one of my favorite movies, [Monty Python and the Holy Grail](https://www.imdb.com/title/tt0071853/).
 
 While at the video of your choice, copy the URL from the address bar in your browser.
 
@@ -100,12 +100,12 @@ The only values you’re likely to want to change are the **-ss 00:02:00.500** a
 
 That’s it! To view your gif, I suggest opening it with your browser. Open **Finder** to your desktop, right click on out.gif and select “Google Chrome” or your other favorite browser. Then if you want to make edits to the timeline, you can just refresh the page.
 
-![](/images/keep-it-light-create-an-animated-gif/finder.png)
+![](/images/keep-it-light-create-an-animated-gif/Finder.png)
 
 ## 4) Upload it to imgur
 
-Now that you’ve got your gif, head over to [imgur](https://imgur.com) to upload it and [forever immortalize your gif in history.](http://imgur.com/0YD6rnw).
+Now that you’ve got your gif, head over to [imgur](https:https://imgur.com) to upload it and [forever immortalize your gif in history.](https:https://imgur.com/0YD6rnw).
 
-[View post on imgur.com](//imgur.com/0YD6rnw)
+[View post on imgur.com](https://imgur.com/0YD6rnw)
 
 Happy gifing!
