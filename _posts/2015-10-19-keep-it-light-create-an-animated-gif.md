@@ -104,7 +104,7 @@ That’s it! To view your gif, I suggest opening it with your browser. Open **Fi
 
 ## 4) Upload it to imgur
 
-Now that you’ve got your gif, head over to [imgur](https:https://imgur.com) to upload it and [forever immortalize your gif in history.](https:https://imgur.com/0YD6rnw).
+Now that you’ve got your gif, head over to [imgur](https://imgur.com) to upload it and [forever immortalize your gif in history.](https://imgur.com/0YD6rnw).
 
 [View post on imgur.com](https://imgur.com/0YD6rnw)
 
