@@ -1,14 +1,20 @@
 ---
 layout: post
-title: "I bought a $7 cable on eBay to unbrick six Google WiFi pucks from my Mac"
+title: "unbricking six google wifi pucks for $7, by rubberducking claude past every wall"
 date: 2026-05-27 13:00:00 -0400
 categories: [hardware, openwrt]
+redirect_from:
+  - /2026/05/27/i-bought-a-7-cable-to-unbrick-six-google-wifi-pucks/
 tags: [google-wifi, gale, ac-1304, openwrt, suzyq, ccd, hardware-hacking, macos, ipq4019]
 description: >
-  Five Google WiFi pucks I owned were considered "walled" by a newer
-  firmware. The fix turned out to be a $7 cable, a $1 screw, and one
-  console command. Here's the whole journey.
+  I had six bricked Google WiFi pucks. Claude was sure five of them
+  needed a $30 SPI programmer and an older coreboot that nobody
+  publishes. Wasn't. It was a $1 screw and one bash command. Here's
+  what figuring that out actually looked like.
 ---
+
+*I had six bricked Google WiFi pucks. Claude was sure five of them needed a $30 SPI programmer and an older coreboot that nobody publishes. Wasn't. It was a $1 screw and one bash command. Here's what figuring that out actually looked like.*
+
 
 Working title candidates, in case the one above is too long:
 
