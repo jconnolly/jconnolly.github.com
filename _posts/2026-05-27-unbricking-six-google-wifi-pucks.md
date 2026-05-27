@@ -9,11 +9,13 @@ tags: [google-wifi, gale, ac-1304, openwrt, suzyq, ccd, hardware-hacking, macos,
 description: >
   I had six bricked Google WiFi pucks. Claude was sure five of them
   needed a $30 SPI programmer and an older coreboot that nobody
-  publishes. Wasn't. It was a $1 screw and one bash command. Here's
-  what figuring that out actually looked like.
+  publishes. I was poking around the open case looking for any other
+  angle when I noticed a silver screw with a conductive washer next
+  to the H1 chip. Pulled it. Told Claude. Turned out that was
+  basically the whole game.
 ---
 
-*I had six bricked Google WiFi pucks. Claude was sure five of them needed a $30 SPI programmer and an older coreboot that nobody publishes. Wasn't. It was a $1 screw and one bash command. Here's what figuring that out actually looked like.*
+*I had six bricked Google WiFi pucks. Claude was sure five of them needed a $30 SPI programmer and an older coreboot that nobody publishes. I was poking around the open case looking for any other angle when, channeling my former engadget-reading i-void-warranties self, I noticed a silver screw with a conductive washer next to the H1 chip. Pulled it. Told Claude. Turned out that was basically the whole game.*
 
 
 Working title candidates, in case the one above is too long:
