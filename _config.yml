@@ -1,0 +1,35 @@
+title: ollyconn
+tagline: notes on software, hardware, and not taking no for an answer
+description: >
+  Personal blog of John Connolly. Mostly software engineering, occasionally
+  hardware hacking, with the dust blown off after a multi-year hiatus.
+
+author:
+  name: John Connolly
+  email: jeconnol@gmail.com
+
+url: "https://ollyconn.com"
+baseurl: ""
+
+theme: minima
+
+minima:
+  social_links:
+    github: jconnolly
+
+show_excerpts: true
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
