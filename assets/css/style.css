@@ -259,6 +259,30 @@ img {
 h2 .section-marker, h3 .section-marker {
   margin-top: 0;
 }
+.etalia-strip {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+.etalia-strip img {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 0 0.3rem 0.6rem;
+  vertical-align: middle;
+  filter: grayscale(20%);
+  transition: filter 0.2s;
+}
+.etalia-strip img:hover {
+  filter: grayscale(0%);
+}
+.etalia-strip figcaption {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-style: italic;
+  margin-top: 0.4rem;
+}
 
 /* post */
 .post-header {
@@ -283,6 +307,18 @@ h2 .section-marker, h3 .section-marker {
   margin-bottom: 3em;
   color: var(--ink-soft);
   font-size: 1rem;
+}
+.now-building {
+  border-left: 2px solid var(--accent);
+  padding: 0.3em 0 0.3em 1em;
+  margin: 1.5em 0 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.now-building-label {
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 0.3em;
 }
 .post-list { display: flex; flex-direction: column; gap: 2em; }
 .post-entry {

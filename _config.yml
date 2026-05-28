@@ -11,6 +11,10 @@ author:
 url: "https://ollyconn.com"
 baseurl: ""
 
+image: /assets/img/sbu/sprawl.jpg
+twitter:
+  card: summary_large_image
+
 markdown: kramdown
 highlighter: rouge
 kramdown:
@@ -29,6 +33,8 @@ plugins:
   - jekyll-redirect-from
 
 show_excerpts: true
+
+now_building: "local LLM stack on a Pi 5 + Hailo NPU vs. a spare MacBook. <a href='/2026/05/28/local-llm-pi5-vs-macbook/'>writeup landing soon</a>."
 
 exclude:
   - Gemfile

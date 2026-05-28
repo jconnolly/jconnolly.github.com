@@ -3,6 +3,9 @@ layout: default
 ---
 <section class="intro">
   {{ content }}
+  {% if site.now_building %}
+  <p class="now-building"><span class="now-building-label">currently building:</span> {{ site.now_building }}</p>
+  {% endif %}
 </section>
 
 <section class="post-list">

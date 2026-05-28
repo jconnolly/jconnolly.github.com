@@ -109,3 +109,11 @@ Misc:
 
 - [Sartre, *Nausea*, pp. 94&ndash;96](https://web.archive.org/web/20020401022654/http://www.sinc.sunysb.edu/Stu/jeconnol/quote2.html) &mdash; a passage I typed up for the web in 2002 because I wanted other people to read it.
 
+<figure class="etalia-strip" aria-label="four images from the et alia blogroll, 2003">
+  <img src="/assets/img/sbu/monet-pink.jpg" alt="Monet's Impression, Sunrise — pink sun over a harbor at dawn">
+  <img src="/assets/img/sbu/harold.jpg" alt="Harold from Harold and Maude, eyes closed, in tweed">
+  <img src="/assets/img/sbu/emerson.jpg" alt="Ralph Waldo Emerson portrait">
+  <img src="/assets/img/sbu/stfrancis.jpg" alt="St. Francis stained glass">
+  <figcaption>points to which I was the locus, circa 2003. (Monet, Harold &amp; Maude, R.W. Emerson, St. Francis.)</figcaption>
+</figure>
+
