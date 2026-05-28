@@ -15,19 +15,19 @@ description: >
 
 ## the setup
 
-I wanted a SOTA-ish local LLM on my LAN that Claude Code could talk to as its `ANTHROPIC_BASE_URL`. The Pi 5 16GB + Hailo-10H AI HAT+ 2 was the original target &mdash; small, quiet, $250-ish all in, vendor-claimed 40 TOPS for LLM offload.
+I wanted a SOTA-ish local LLM on my LAN that Claude Code could talk to as its `ANTHROPIC_BASE_URL`. The Pi 5 16GB + Hailo-10H AI HAT+ 2 was the original target &mdash; small, quiet, dedicated NPU for offload.
 
-Halfway in I noticed a spare 2023 MacBook Air M2 16GB sitting in a drawer. I added it as a control track.
+Halfway in I pivoted to a spare 2023 MacBook Air M2 16GB sitting in a drawer.
 
 ## the verdict
 
 If you have a spare Apple Silicon Mac on your LAN, use that. Skip the Pi for LLM.
 
-| Track | Model ceiling | Decode tok/s | Cost |
-|---|---|---|---|
-| Pi 5 16GB CPU | qwen3:8b Q4_K_M | ~1.9 | $250 ish |
-| Pi 5 + Hailo-10H | (unusable for CC) | &mdash; | +$130 |
-| M2 MBA 16GB | qwen3:14b | ~10 | $0 (spare) |
+| Track | Model ceiling | Decode tok/s |
+|---|---|---|
+| Pi 5 16GB CPU | qwen3:8b Q4_K_M | ~1.9 |
+| Pi 5 + Hailo-10H | (unusable for CC) | &mdash; |
+| M2 MBA 16GB | qwen3:14b | ~10 |
 
 The MBA wins by 5x on speed, runs a bigger model, and cost nothing because it was already in the house.
 

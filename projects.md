@@ -10,8 +10,6 @@ Selected recent work. Full list at [github.com/jconnolly](https://github.com/jco
 
 **[local-llm-pi5](https://github.com/jconnolly/local-llm-pi5)** &middot; SOTA local LLM at home, two-track investigation: Raspberry Pi 5 16GB + Hailo-10H AI HAT+ 2 vs. a spare M2 MacBook Air. Verdict, with measured numbers: if you have spare Apple Silicon on the LAN, use it. qwen3:14b at ~10 tok/s on Maral beats qwen3:8b at ~2 tok/s on the Pi, for $0. Hailo-10H is good at compiled HEFs (vision, Whisper) but not at agentic LLMs &mdash; 2B param ceiling, 2k context, broken `tools` payload in `hailo-ollama`. Notes on tool-use parsing (qwen2.5-coder emits bare JSON, qwen3 emits proper `tool_calls`), memory guardrails so Ollama can't thrash SD-card swap, and the Claude Code wiring.
 
-**[demo-mcp-dev-summit-linear](https://github.com/jconnolly/demo-mcp-dev-summit-linear)** &middot; Full-stack Linear.app clone &mdash; React + TypeScript + Express + Postgres, Docker Compose &mdash; built as the substrate for an MCP demo at the 2026 MCP Dev Summit.
-
 **[spotify-cagebreak](https://github.com/jconnolly/spotify-cagebreak)** &middot; Weekly "algorithm cage-break" music discovery. Dumps your Spotify taste profile, asks a local Ollama model for opinionated picks adjacent to your taste but not in your library and not recommended before, then builds a dated playlist and a markdown digest. No recommender-algorithm feedback loop &mdash; you get LLM taste, not Spotify's.
 
 ## Hardware / OpenWRT
@@ -24,4 +22,4 @@ Selected recent work. Full list at [github.com/jconnolly](https://github.com/jco
 
 ## Earlier (and ancient)
 
-**Grim et al., "Reducing Prejudice"** *(MIT Press, Artificial Life IX, 2004)* &middot; Co-author on a spatialized game-theoretic model of the contact hypothesis &mdash; agent-based simulation of prejudice reduction, done at SUNY Stony Brook under Patrick Grim. Full cite + artifacts on the [about page](/about/#writing). Currently dusting these off and porting the figures forward.
+**Grim et al., "Reducing Prejudice"** *(MIT Press, Artificial Life IX, 2004)* &middot; Co-author on a spatialized game-theoretic model of the contact hypothesis &mdash; agent-based simulation of prejudice reduction, done at SUNY Stony Brook under Patrick Grim. Full cite + artifacts on the [about page](/about/#writing).

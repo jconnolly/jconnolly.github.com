@@ -14,7 +14,7 @@ You can find me on [GitHub](https://github.com/jconnolly) and [LinkedIn](https:/
 
 ## writing
 
-*Ancient academic work, currently being dusted off as I migrate the figures and code to a form that still runs in 2026.*
+*Ancient academic work, linking it here for the first time.*
 
 **Grim, P., Selinger, E., Braynen, W., Rosenberger, R., Au, R., Louie, N., & Connolly, J. (2004).** *Reducing Prejudice: A Spatialized Game-Theoretic Model for the Contact Hypothesis.* In **Artificial Life IX: Proceedings of the Ninth International Conference on the Simulation and Synthesis of Living Systems**, pp. 244&ndash;250. MIT Press. ISBN 0-262-66183-7.
 
@@ -27,5 +27,3 @@ A spatialized agent-based game-theoretic model of Allport's contact hypothesis &
 &middot; [JSTOR](https://www.jstor.org/stable/40441404) &middot; [University of Maryland DRUM mirror](https://drum.lib.umd.edu/items/3b3a4346-8a6b-413a-9865-aaf195446db8)
 
 Extended journal version of the ALife IX paper &mdash; same model, longer treatment of the philosophical and social-policy implications.
-
-*Reviving these is partly nostalgia and partly the realization that "agent-based simulation of a social hypothesis" reads very differently in 2026, sitting next to the LLM and MCP work above, than it did in 2005.*
