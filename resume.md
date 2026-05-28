@@ -56,6 +56,8 @@ See [/projects/](/projects/) for the rest, including recent AI/LLM hardware expe
 
 **Stony Brook University** &middot; B.S. Computer Science. Worked on game-theoretic research with Dr. Patrick Grim; co-authored papers in MIT's *Artificial Life* and *Public Affairs Quarterly* &mdash; see [/about/](/about/#writing).
 
+**[Hacker School](https://www.recurse.com)** (now the [Recurse Center](https://www.recurse.com/about)) &middot; batch [2], winter 2012.
+
 ## skills
 
 **AI / LLM:** AWS Bedrock, Anthropic Claude API, Bedrock Knowledge Bases, vector search (pgvector, OpenSearch k-NN), embeddings, MCP, tool-use / agentic workflows.

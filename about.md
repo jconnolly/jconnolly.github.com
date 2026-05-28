@@ -12,6 +12,8 @@ This blog is mostly notes I take while working on something I want to remember t
 
 You can find me on [GitHub](https://github.com/jconnolly) and [LinkedIn](https://www.linkedin.com/in/jeconnol). For everything else, the username is usually `ollyconn`.
 
+I went through [Hacker School](https://www.recurse.com) (now the [Recurse Center](https://www.recurse.com/about)) in batch [2], winter 2012.
+
 ## writing
 
 *Ancient academic work, linking it here for the first time.*
@@ -27,3 +29,24 @@ A spatialized agent-based game-theoretic model of Allport's contact hypothesis &
 &middot; [JSTOR](https://www.jstor.org/stable/40441404) &middot; [University of Maryland DRUM mirror](https://drum.lib.umd.edu/items/3b3a4346-8a6b-413a-9865-aaf195446db8)
 
 Extended journal version of the ALife IX paper &mdash; same model, longer treatment of the philosophical and social-policy implications.
+
+## old posts elsewhere
+
+A handful of posts from a previous internet life, surfaced via the Wayback Machine. Links go to archive.org snapshots since the original hosts are gone or unrecognizable.
+
+### TheLadders engineering blog *(2013)*
+
+- [Denormalize the Datas for Great Good](https://web.archive.org/web/2014/http://dev.theladders.com/2013/07/denormalize-the-datas-for-great-good/) &mdash; July 2013. Why denormalization paid off for a particular search/serve path at TheLadders.
+
+### foo(bar){mustache} *(2012, personal Tumblr)*
+
+Short posts written during Hacker School batch [2]:
+
+- [My Hacker School batch[2] experience so far](https://web.archive.org/web/20151121011704/http://foobarmustache.tumblr.com/post/20927915391/my-hacker-school-batch2-experience-so-far) &mdash; April 2012
+- [Read It Later is now Pocket?](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21290172433/read-it-later-is-now-pocket)
+- [Java &lt;-&gt; node.js RPC](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21343602498/java-node-js-rpc)
+- [Didn't Read LOL](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21344865479/didnt-read-lol)
+- [Ruby: 1, Java: 0](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21445901242/ruby-1-java-0)
+- [TIL: Java Pattern (regex) objects are not .equals() friendly](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21516372504/til-java-pattern-regex-objects-are-not-equals)
+- [j2labs / fibonacci pigeons](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/22192871946/j2labs-fibonacci-pigeons-from-these-awesome)
+
