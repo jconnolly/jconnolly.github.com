@@ -90,3 +90,22 @@ Short posts, starting during Hacker School batch [2] and trailing off through 20
 - [Couchbase tuning](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/46853162739/couchbase-tuning) &mdash; April 2013
 - [You should feel like a dilettante](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/91967027979/you-should-feel-like-a-dilettante) &mdash; July 2014
 
+### cringecore *(2001&ndash;2004, SUNY Stony Brook student page)*
+
+Earlier than the rest. The student site at `sinc.sunysb.edu/Stu/jeconnol/` where some of the images on this page were saved from. Undergrad voice, all of it &mdash; bring sunglasses.
+
+Journal entries:
+
+- [etcetera (Mar 2004)](https://web.archive.org/web/20070104134819/http://www.sinc.sunysb.edu/Stu/jeconnol/etcetera/etcetera.html) &mdash; an apology for neglecting the site, dialogued with an imaginary reader. The earliest documented instance of me promising to maintain this blog more often.
+- [etcetera5 (Dec 2001 &ndash; Jan 2002)](https://web.archive.org/web/20070104135523/http://www.sinc.sunysb.edu/Stu/jeconnol/etcetera/etcetera5.html) &mdash; unplugging a tower one cable at a time, watching the last of the radiation leave the screen.
+- [etcetera6 (Sep &ndash; Oct 2001)](https://web.archive.org/web/20070104135531/http://www.sinc.sunysb.edu/Stu/jeconnol/etcetera/etcetera6.html) &mdash; a tic-tac-toe quasi-fractal, an Ana&iuml;s Nin quote, and feeling like the rower in the center of Monet's *Soleil Levant*.
+
+Java applets (won't run anymore &mdash; Java applets stopped working in browsers a decade ago):
+
+- [programs.html](https://web.archive.org/web/20070104134606/http://www.sinc.sunysb.edu/Stu/jeconnol/java/programs.html) &mdash; index of four applets: a polygon drawer, a calculator, a tic-tac-toe quasi-fractal, and Koch's snowflake fractal.
+- [points.html](https://web.archive.org/web/20070104134609/http://www.sinc.sunysb.edu/Stu/jeconnol/java/points.html) &mdash; "John and Jimmy's Applet".
+
+Misc:
+
+- [Sartre, *Nausea*, pp. 94&ndash;96](https://web.archive.org/web/20020401022654/http://www.sinc.sunysb.edu/Stu/jeconnol/quote2.html) &mdash; a passage I typed up for the web in 2002 because I wanted other people to read it.
+
