@@ -229,6 +229,37 @@ img {
   border-radius: 4px;
 }
 
+/* about-page hero + section markers (saved from a 2002 student site) */
+.about-hero {
+  margin: 0 0 2.5rem;
+}
+.about-hero img {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 4px;
+}
+.about-hero figcaption {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0.6rem 0 0;
+  text-align: right;
+}
+.section-marker {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.7em 0 0;
+  border-radius: 4px;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+}
+h2 .section-marker, h3 .section-marker {
+  margin-top: 0;
+}
+
 /* post */
 .post-header {
   margin-bottom: 2.5rem;

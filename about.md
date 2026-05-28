@@ -4,6 +4,11 @@ title: about
 permalink: /about/
 ---
 
+<figure class="about-hero">
+  <img src="/assets/img/sbu/sprawl.jpg" alt="aerial photo of a sprawling cloverleaf highway interchange">
+  <figcaption>sprawled out on god's carpet. saved off a 2002 sunysb student page.</figcaption>
+</figure>
+
 John Connolly. Software engineer based on Long Island.
 
 Currently Lead Product Engineer at [Data Society](https://datasociety.com), building LLM platforms (RAG on AWS Bedrock + Claude, MCP servers, agentic tooling). Previously Principal Engineer at Flow Commerce, where I helped build the international checkout that became Shopify Managed Markets. Full [resume](/resume/).
@@ -14,7 +19,7 @@ You can find me on [GitHub](https://github.com/jconnolly) and [LinkedIn](https:/
 
 I went through [Hacker School](https://www.recurse.com) (now the [Recurse Center](https://www.recurse.com/about)) in batch [2], winter 2012.
 
-## writing
+<h2><img class="section-marker" src="/assets/img/sbu/neuron.gif" alt="microscope image of a single neuron"> writing</h2>
 
 *Ancient academic work, linking it here for the first time.*
 
@@ -34,7 +39,7 @@ Extended journal version of the ALife IX paper &mdash; same model, longer treatm
 
 A handful of posts from a previous internet life, surfaced via the Wayback Machine. Links go to archive.org snapshots since the original hosts are gone or unrecognizable.
 
-### Bug Labs community blog *(2008&ndash;2011)*
+<h3><img class="section-marker" src="/assets/img/sbu/dharma.jpg" alt="small mountain hut against snowy alpine peaks"> Bug Labs community blog <em>(2008&ndash;2011)</em></h3>
 
 Hardware and Linux notes from my time at Bug Labs &mdash; OSGi, the BUG modular hardware platform, OMAP kernels, audio servers, and the gear-tweaking that came with it. The original `community.buglabs.net` is gone.
 
@@ -67,7 +72,7 @@ Hardware and Linux notes from my time at Bug Labs &mdash; OSGi, the BUG modular 
 
 - [Denormalize the Datas for Great Good](https://web.archive.org/web/2014/http://dev.theladders.com/2013/07/denormalize-the-datas-for-great-good/) &mdash; July 2013. Why denormalization paid off for a particular search/serve path at TheLadders.
 
-### foo(bar){mustache} *(2012&ndash;2014, personal Tumblr)*
+<h3><img class="section-marker" src="/assets/img/sbu/couple.jpg" alt="black and white photo of a couple kissing at a cafe table"> foo(bar){mustache} <em>(2012&ndash;2014, personal Tumblr)</em></h3>
 
 Short posts, starting during Hacker School batch [2] and trailing off through 2014:
 
