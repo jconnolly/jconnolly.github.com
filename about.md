@@ -38,9 +38,9 @@ A handful of posts from a previous internet life, surfaced via the Wayback Machi
 
 - [Denormalize the Datas for Great Good](https://web.archive.org/web/2014/http://dev.theladders.com/2013/07/denormalize-the-datas-for-great-good/) &mdash; July 2013. Why denormalization paid off for a particular search/serve path at TheLadders.
 
-### foo(bar){mustache} *(2012, personal Tumblr)*
+### foo(bar){mustache} *(2012&ndash;2014, personal Tumblr)*
 
-Short posts written during Hacker School batch [2]:
+Short posts, starting during Hacker School batch [2] and trailing off through 2014:
 
 - [My Hacker School batch[2] experience so far](https://web.archive.org/web/20151121011704/http://foobarmustache.tumblr.com/post/20927915391/my-hacker-school-batch2-experience-so-far) &mdash; April 2012
 - [Read It Later is now Pocket?](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21290172433/read-it-later-is-now-pocket)
@@ -49,4 +49,9 @@ Short posts written during Hacker School batch [2]:
 - [Ruby: 1, Java: 0](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21445901242/ruby-1-java-0)
 - [TIL: Java Pattern (regex) objects are not .equals() friendly](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/21516372504/til-java-pattern-regex-objects-are-not-equals)
 - [j2labs / fibonacci pigeons](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/22192871946/j2labs-fibonacci-pigeons-from-these-awesome)
+- [May 2012 "Who's Hiring" on Hacker News](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/22195705381/may-2012-whos-hiring-on-hacker-news)
+- [Rails lolwat](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/28060299443/rails-lolwat) &mdash; July 2012
+- [Maintenance of my application](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/31541520481/maintenance-of-my-application) &mdash; September 2012
+- [Couchbase tuning](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/46853162739/couchbase-tuning) &mdash; April 2013
+- [You should feel like a dilettante](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/91967027979/you-should-feel-like-a-dilettante) &mdash; July 2014
 
