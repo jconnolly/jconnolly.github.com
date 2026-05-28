@@ -15,7 +15,7 @@ description: >
   basically the whole game.
 ---
 
-*I had six bricked Google WiFi pucks. Claude was sure five of them needed a $30 SPI programmer and an older coreboot that nobody publishes. I was poking around the open case looking for any other angle when, channeling my former engadget-reading i-void-warranties self, I noticed a silver screw with a conductive washer next to the H1 chip. Pulled it. Told Claude. Turned out that was basically the whole game.*
+*I had six bricked Google WiFi pucks. Claude was sure five of them needed a $30 SPI programmer and an older coreboot that nobody publishes. I was poking around the open case looking for any other angle when, channeling my former [engadget](https://www.engadget.com/)-reading [i-void-warranties](https://x.com/thinkgeek/status/975914832737325061) self, I noticed a silver screw with a conductive washer next to the H1 chip. Pulled it. Told Claude. Turned out that was basically the whole game.*
 
 ## tl;dr
 
