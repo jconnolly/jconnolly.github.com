@@ -19,7 +19,7 @@ description: >
 
 ## tl;dr
 
-Six discontinued Google WiFi pucks (model AC-1304, codename Gale). I wanted to mesh them with OpenWrt. The first one flashed in twenty minutes following the standard kkestell guide. The other five did the boot dance, briefly answered ping, then reverted to a purple LED loop. Forum consensus: they're walled by a newer Google firmware that refuses unsigned USB boot. The accepted remedies were a CH341A SPI programmer plus an older coreboot image nobody publishes, or "buy more pucks."
+Six discontinued Google WiFi pucks (model AC-1304, codename Gale). I wanted to mesh them with OpenWrt. The first one flashed in twenty minutes following [the standard kkestell guide](https://github.com/kkestell/openwrt-on-google-wifi). The other five did the boot dance, briefly answered ping, then reverted to a purple LED loop. Forum consensus: they're walled by a newer Google firmware that refuses unsigned USB boot. The accepted remedies were a CH341A SPI programmer plus an older coreboot image nobody publishes, or "buy more pucks."
 
 Both of those felt bad. So I rubberducked Claude for a while and bought a $7 cable. The actual fix turned out to be: open the case, pull out the write-protect screw that was already on the mainboard, log into the chronos shell over the puck's debug UART, run `enable_dev_usb_boot`, and from there the normal kkestell flow works. The wall isn't a signature-enforcement wall, it's a "the auto-updated firmware doesn't ship `flashrom` so the script that sets the unlock flag silently no-ops" wall. Dumb, fixable, took an afternoon to figure out per puck the first time and ten minutes per puck after.
 
@@ -29,13 +29,13 @@ Below is the actual journey, including three rabbit holes Claude and I went down
 
 Verizon FiOS on Long Island, six pucks from the era when these were the cool mesh option. Google killed the Google WiFi app this year, the pucks are EOL, stock firmware works but has nothing I want (no SQM, no DNS-level adblock, no ssh). OpenWrt 25.12.4 has been a supported target for this hardware forever.
 
-The published procedure (kkestell's guide, papdee's OpenWrt forum thread, the wiki) is simple:
+The published procedure ([kkestell's guide](https://github.com/kkestell/openwrt-on-google-wifi), [papdee's OpenWrt forum thread](https://forum.openwrt.org/t/finally-installed-openwrt-on-my-google-wifi-ac-1304/183541), [the OpenWrt wiki page for Gale](https://openwrt.org/toh/google/wifi)) is simple:
 
 1. Open the puck, find the internal switch called SW7.
 2. Boot a Chromium-OS-style USB drive containing the OpenWrt factory image.
 3. SSH into it at 192.168.1.1, dd that image onto the internal eMMC, reboot.
 
-I followed it on the puck that lives in my office. Worked first try. It now serves the house as `gw-main`, running cake SQM at 285 down / 285 up against a baseline of 263ms bufferbloat. Felt great.
+I followed it on the puck that lives in my office. Worked first try. It now serves the house as `gw-main`, running [cake SQM](https://www.bufferbloat.net/projects/codel/wiki/Cake/) at 285 down / 285 up against a baseline of 263ms bufferbloat. Felt great.
 
 Tried the same procedure on every other puck. None of them worked. Every single one: hold reset, plug power, LED amber, release, press SW7, LED rapid-blue (depthcharge reading the USB stick), then solid blue (kernel loads), then twenty purple blinks, breathing purple, reboot, repeat.
 
@@ -89,7 +89,7 @@ enable_dev_usb_boot
 Have fun and send patches!
 ```
 
-The entire boot of an already-working puck. Coreboot bootblock, vboot trying to verify a kernel signature, failing because the OpenWrt kernel is dev-signed instead of factory-signed, falling back to hash-only verification, accepting it, handing off to the Marvell (er, Qualcomm IPQ4019 per depthcharge) SoC's Linux. Even tells me at the end which command I'd want to run from a chronos shell to enable USB-boot of unsigned kernels.
+The entire boot of an already-working puck. [Coreboot](https://www.coreboot.org/) bootblock, [vboot](https://chromium.googlesource.com/chromiumos/platform/vboot_reference/) trying to verify a kernel signature, failing because the OpenWrt kernel is dev-signed instead of factory-signed, falling back to hash-only verification, accepting it, handing off to the Marvell (er, [Qualcomm IPQ4019](https://openwrt.org/docs/techref/hardware/soc/soc.qualcomm.ipq40xx) per [depthcharge](https://chromium.googlesource.com/chromiumos/platform/depthcharge/)) SoC's Linux. Even tells me at the end which command I'd want to run from a chronos shell to enable USB-boot of unsigned kernels.
 
 Which is great if you can get to a chronos shell. Which on a walled puck, at this point, I could not.
 
@@ -128,7 +128,7 @@ ssh: connect to host 192.168.1.1 port 22: Connection refused
 race end: Tue May 26 19:58:00 EDT 2026, 135 attempts, 0 SSH successes
 ```
 
-`Connection refused` is the giveaway. Network stack is up, dropbear hasn't bound port 22 yet. Per OpenWrt's procd startup order, dropbear comes up after networking, and the firmware kills the kernel before procd reaches that step.
+`Connection refused` is the giveaway. Network stack is up, dropbear hasn't bound port 22 yet. Per [OpenWrt's procd startup order](https://openwrt.org/docs/techref/procd), dropbear comes up after networking, and the firmware kills the kernel before procd reaches that step.
 
 So yes, walled. Forum was right, my version was just more empirical. The question was whether I could do anything about it from a Mac with a $7 cable.
 
@@ -136,11 +136,11 @@ So yes, walled. Forum was right, my version was just more empirical. The questio
 
 Sparing you most of the detail (it's all in the repo at `docs/ccd-unlock-research.md`). The short version, ordered from "this would be great if it worked" to "okay, definitely not happening":
 
-**Rabbit hole 1: the SPI bridge.** Turns out the SuzyQ exposes a third USB interface (`bInterfaceSubClass = 0x51`, `USB_SUBCLASS_GOOGLE_SPI`) that's literally a SPI flash programmer over USB. Same protocol flashrom's `raiden_debug_spi` driver speaks. If I could enable it, I could dump the puck's coreboot, patch out the signature check, write it back. No CH341A needed. Beautiful in theory. I sent a JEDEC ID read (opcode `0x9F`) through the bridge and got back a defined error code: `status=0x0005` = "The SPI bridge is disabled" per the chromiumos headers. Hardware wired up and working. Just turned off in software. On a Chromebook you'd flip it on with `gsctool ccd-set FlashAP`, except Gale doesn't expose the `USB_SUBCLASS_GOOGLE_UPDATE` interface that gsctool talks to. Wedge identified, lock still in place.
+**Rabbit hole 1: the SPI bridge.** Turns out the SuzyQ exposes a third USB interface (`bInterfaceSubClass = 0x51`, `USB_SUBCLASS_GOOGLE_SPI`) that's literally a SPI flash programmer over USB. Same protocol [flashrom](https://www.flashrom.org/)'s [`raiden_debug_spi` driver](https://review.coreboot.org/plugins/gitiles/flashrom/+/refs/heads/main/raiden_debug_spi.c) speaks. If I could enable it, I could dump the puck's coreboot, patch out the signature check, write it back. No CH341A needed. Beautiful in theory. I sent a JEDEC ID read (opcode `0x9F`) through the bridge and got back a defined error code: `status=0x0005` = "The SPI bridge is disabled" per the chromiumos headers. Hardware wired up and working. Just turned off in software. On a Chromebook you'd flip it on with [`gsctool ccd-set FlashAP`](https://chromium.googlesource.com/chromiumos/platform/ec/+/HEAD/extra/usb_updater/gsctool.c), except Gale doesn't expose the `USB_SUBCLASS_GOOGLE_UPDATE` interface that gsctool talks to. Wedge identified, lock still in place.
 
 **Rabbit hole 2: vendor control transfers.** Maybe a backdoor request that toggles the bridge. I wrote a fuzzer that swept all 256 bRequest values across four bmRequestType variants on both the device and each interface. 1024 control transfers, every single one returned STALL. Gale's H1 firmware implements zero vendor-specific control handlers. The backdoor door isn't locked, it just isn't installed.
 
-**Rabbit hole 3: the GSC console.** On a Chromebook you'd type `ccd open` at the GSC's own console, which lives on yet another USB interface inside the same device. I checked Gale's USB descriptor. `bNumInterfaces = 3`. The Cr50 GSC console would have been interface 2. Gale's H1 has interfaces 0 (EC_PD), 1 (AP), and 3 (SPI). No interface 2. Not hidden, not locked, not there at all. Gale's H1 ships a stripped-down Cr50 that drops the console interface.
+**Rabbit hole 3: the GSC console.** On a Chromebook you'd type `ccd open` at the GSC's own console, which lives on yet another USB interface inside the same device. I checked Gale's USB descriptor. `bNumInterfaces = 3`. The [Cr50](https://chromium.googlesource.com/chromiumos/platform/ec/+/HEAD/board/cr50/) GSC console would have been interface 2. Gale's H1 has interfaces 0 (EC_PD), 1 (AP), and 3 (SPI). No interface 2. Not hidden, not locked, not there at all. Gale's H1 ships a stripped-down Cr50 that drops the console interface.
 
 At this point I stopped, wrote it all up, and pushed a commit titled "software path exhausted." Told Claude the recipe was "find a screw, get a CH341A, hope for the best." Claude agreed in detail.
 
@@ -148,7 +148,7 @@ Then, mostly out of curiosity, I asked Claude what a write-protect screw actuall
 
 ## the screw
 
-Chromebooks have a hardware write-protect mechanism that ties the SPI flash chip's WP# pin to a screw on the mainboard. Screw in plus its conductive washer bridging some pads means WP# is asserted means firmware writes blocked. Screw out means writes allowed. Claude was confident even with the screw out, the SuzyQ SPI bridge would still be locked by CCD, so removing the screw alone wouldn't help. I'd still need the CH341A. Which is half right.
+Chromebooks have [a hardware write-protect mechanism](https://chromium.googlesource.com/chromiumos/docs/+/HEAD/write_protection.md) that ties the SPI flash chip's WP# pin to a screw on the mainboard. Screw in plus its conductive washer bridging some pads means WP# is asserted means firmware writes blocked. Screw out means writes allowed. Claude was confident even with the screw out, the SuzyQ SPI bridge would still be locked by CCD, so removing the screw alone wouldn't help. I'd still need the CH341A. Which is half right.
 
 I opened a puck. Right next to the H1 chip there was a small silver screw with a brass washer that bridged at least three PCB pads. Different from the case screw. Not for clamping anything down; you could see the conductive contact under it. I'd been looking at the SoC and the SPI flash chip but hadn't really registered this thing.
 
@@ -243,7 +243,7 @@ Full recipe:
    sudo crossystem dev_boot_usb=1 dev_boot_signed_only=0 dev_default_boot=usb
    ```
    Confirm with `sudo crossystem dev_boot_usb` returning `1`.
-8. Standard kkestell flow from here. Write OpenWrt's `factory.bin` to the same USB stick, swap from SuzyQ back to the hub, SW7 dance, USB-boots OpenWrt steady-blue this time, no purple revert. `scp -O factory.bin root@192.168.1.1:/tmp/`, `dd if=/dev/zero bs=512 seek=7634911 of=/dev/mmcblk0 count=33`, `dd if=/tmp/...factory.bin of=/dev/mmcblk0 && sync && reboot`. Pull the USB stick, wait thirty seconds, boots OpenWrt from internal eMMC. Done.
+8. [Standard kkestell flow](https://github.com/kkestell/openwrt-on-google-wifi) from here. Write OpenWrt's `factory.bin` to the same USB stick, swap from SuzyQ back to the hub, SW7 dance, USB-boots OpenWrt steady-blue this time, no purple revert. `scp -O factory.bin root@192.168.1.1:/tmp/`, `dd if=/dev/zero bs=512 seek=7634911 of=/dev/mmcblk0 count=33`, `dd if=/tmp/...factory.bin of=/dev/mmcblk0 && sync && reboot`. Pull the USB stick, wait thirty seconds, boots OpenWrt from internal eMMC. Done.
 
 Ten minutes per puck once you've done it once. Factory recovery is the slow step (five minutes). SW7 dance plus chronos login plus the four commands is maybe two minutes. Rest is cable swapping and waiting for the LED to settle. I flashed five walled pucks back-to-back this way and all worked first try.
 
@@ -263,7 +263,7 @@ This was supposed to be a serial-console story. I bought the cable to watch the 
 
 The wall isn't a firmware-policy wall, it's a missing-binary wall, which is much dumber and much more fixable. The three rabbit holes all dead-ended at "this would be the right way to do this on a Chromebook, but Gale doesn't expose the interface." They weren't wasted, exactly. They were just looking in the wrong drawer. And they were necessary to convince me the unlock had to be hardware-flavored, which is the only reason I bothered looking at the screw.
 
-The HW write-protect screw doing double duty as a CCD-UART unlock was not in any documentation I could find. MrChromebox describes WP screw removal in the context of unbricking with a CH341A. The chromium hdctools docs mention CCD UART access as a capability you flip on with `gsctool` (which Gale doesn't have). Nobody I read said "hey, on this device, the screw also unlocks the UART writes." It's possible this is well-known in the Chromebook hacking community and I just didn't find the right thread. If you know more, I'd love to hear from you.
+The HW write-protect screw doing double duty as a CCD-UART unlock was not in any documentation I could find. [MrChromebox](https://docs.mrchromebox.tech/docs/support/unbricking/unbrick-ch341a.html) describes WP screw removal in the context of unbricking with a CH341A. The [chromium hdctools docs](https://chromium.googlesource.com/chromiumos/third_party/hdctools/+/HEAD/docs/ccd.md) mention CCD UART access as a capability you flip on with `gsctool` (which Gale doesn't have). Nobody I read said "hey, on this device, the screw also unlocks the UART writes." It's possible this is well-known in the Chromebook hacking community and I just didn't find the right thread. If you know more, I'd love to hear from you.
 
 `enable_dev_usb_boot` printing SUCCESS while silently failing is a UX choice. I get why the script doesn't want to scare you, but a non-zero exit code when the underlying crossystem call returned (error) would have saved me about two hours.
 
