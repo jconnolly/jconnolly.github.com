@@ -34,6 +34,35 @@ Extended journal version of the ALife IX paper &mdash; same model, longer treatm
 
 A handful of posts from a previous internet life, surfaced via the Wayback Machine. Links go to archive.org snapshots since the original hosts are gone or unrecognizable.
 
+### Bug Labs community blog *(2008&ndash;2011)*
+
+Hardware and Linux notes from my time at Bug Labs &mdash; OSGi, the BUG modular hardware platform, OMAP kernels, audio servers, and the gear-tweaking that came with it. The original `community.buglabs.net` is gone.
+
+- [MotherBUG: Bigger, Badder, Unplugged](https://web.archive.org/web/20100529220812/http://community.buglabs.net/jconnolly/posts/27-MotherBUG-Bigger-Badder-Unplugged)
+- [MotherBUG + Von Hippel + Arduino Mini + Servo Motor](https://web.archive.org/web/20081208055309/http://community.buglabs.net/jconnolly/posts/35-MotherBUG-Von-Hippel-Arduino-Mini-Servo-Motor) &mdash; Dec 2008
+- [building JNI bundles](https://web.archive.org/web/20090126140205/http://community.buglabs.net/jconnolly/posts/71-building-JNI-bundles) &mdash; Jan 2009
+- [Features features features](https://web.archive.org/web/20090217071921/http://community.buglabs.net/jconnolly/posts/82-Features-features-features) &mdash; Feb 2009
+- [Bug Labs Codeswarm: 3+ years of code](https://web.archive.org/web/20090906072634/http://community.buglabs.net/jconnolly/posts/150-Bug-Labs-Codeswarm-3-years-of-code) &mdash; Sep 2009
+- [Fun with Java, our repo, java-gnome, and dbus-java](https://web.archive.org/web/20090915195259/http://community.buglabs.net/jconnolly/posts/162-Fun-with-Java-our-repo-java-gnome-and-dbus-java-) &mdash; Sep 2009
+- [Total Request Live!](https://web.archive.org/web/20091204133205/http://community.buglabs.net/jconnolly/posts/149-Total-Request-Live-) &mdash; Dec 2009
+- [Compile your own kernel](https://web.archive.org/web/20100216192642/http://community.buglabs.net/jconnolly/posts/182-Compile-your-own-kernel) &mdash; Feb 2010
+- [Using MPD, your BUGbase and BUGsound to make an audio server](https://web.archive.org/web/20100317110119/http://community.buglabs.net/jconnolly/posts/178-Using-MPD-your-BUGbase-and-BUGsound-to-make-an-audio-server) &mdash; Mar 2010
+- [building a BUG App against the API in svn trunk](https://web.archive.org/web/20100405054515/http://community.buglabs.net/jconnolly/posts/40-building-a-BUG-App-against-the-API-in-svn-trunk) &mdash; Apr 2010
+- [How to make upgrading your BUG much easier](https://web.archive.org/web/20100713101421/http://community.buglabs.net/jconnolly/posts/164-How-to-make-upgrading-your-BUG-much-easier) &mdash; Jul 2010
+- [Marvell 88W8686, OLPC, libertas_tf... BUG as wifi AP?](https://web.archive.org/web/20100713101436/http://community.buglabs.net/jconnolly/posts/199-Marvell-88W8686-OLPC-libertas-tf-BUG-as-wifi-AP-) &mdash; Jul 2010
+- [I just gave $36 to last.fm](https://web.archive.org/web/20100725120504/http://community.buglabs.net/jconnolly/posts/200-I-just-gave-36-to-last-fm) &mdash; Jul 2010
+- [Qualcomm vs. Sierra](https://web.archive.org/web/20100728185338/http://community.buglabs.net/jconnolly/posts/198-Qualcomm-vs-Sierra) &mdash; Jul 2010
+- [Friday afternoon remote debugging, remotely](https://web.archive.org/web/20100911204303/http://community.buglabs.net/jconnolly/posts/204-Friday-afternoon-remote-debugging-remotely-) &mdash; Sep 2010
+- [my love of apt](https://web.archive.org/web/20100917125344/http://community.buglabs.net/jconnolly/posts/205-my-love-of-apt-) &mdash; Sep 2010
+- [What's up with 2?](https://web.archive.org/web/20101001012206/http://community.buglabs.net/jconnolly/posts/208-What-s-up-with-2) &mdash; Oct 2010
+- [Having OpenJDK 6 sources display in Eclipse](https://web.archive.org/web/20101001195656/http://community.buglabs.net/jconnolly/posts/210-Having-openjdk-6-sources-display-in-eclipse) &mdash; Oct 2010
+- [Pardon our appearance](https://web.archive.org/web/20101114004605/http://community.buglabs.net/jconnolly/posts/216-Pardon-our-appearance) &mdash; Nov 2010
+- [R2.1 available for download](https://web.archive.org/web/20110204204326/http://community.buglabs.net/jconnolly/posts/219-R2-1-available-for-download) &mdash; Feb 2011
+- [suggested free reading](https://web.archive.org/web/20110218042825/http://community.buglabs.net/jconnolly/posts/222-suggested-free-reading) &mdash; Feb 2011
+- [BUG Software R2.0.2 available for consumption](https://web.archive.org/web/20110315054730/http://community.buglabs.net/jconnolly/posts/227-BUG-Software-R2-2-available-for-consumption) &mdash; Mar 2011
+- [Processing &amp; BUG](https://web.archive.org/web/20110604060244/http://community.buglabs.net/jconnolly/posts/246-Processing-BUG) &mdash; Jun 2011
+- [BUG Software R2.1.0 (based on linaro 2.6.35) now available](https://web.archive.org/web/20110605050150/http://community.buglabs.net/jconnolly/posts/247-BUG-Software-R2-1-based-on-linaro-2-6-35-now-available) &mdash; Jun 2011
+
 ### TheLadders engineering blog *(2013)*
 
 - [Denormalize the Datas for Great Good](https://web.archive.org/web/2014/http://dev.theladders.com/2013/07/denormalize-the-datas-for-great-good/) &mdash; July 2013. Why denormalization paid off for a particular search/serve path at TheLadders.
