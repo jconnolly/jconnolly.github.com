@@ -27,6 +27,9 @@ Below is the actual journey, including three rabbit holes Claude and I went down
 
 ## the setup
 
+![Google WiFi puck (AC-1304, codename Gale)](/assets/img/post-puck/google-wifi-product.png)
+*The puck. Google WiFi AC-1304, codename Gale. Image: [OpenWrt wiki](https://openwrt.org/toh/google/wifi), CC BY-SA 4.0.*
+
 Verizon FiOS on Long Island, six pucks from the era when these were the cool mesh option. Google killed the Google WiFi app this year, the pucks are EOL, stock firmware works but has nothing I want (no SQM, no DNS-level adblock, no ssh). OpenWrt 25.12.4 has been a supported target for this hardware forever.
 
 The published procedure ([kkestell's guide](https://github.com/kkestell/openwrt-on-google-wifi), [papdee's OpenWrt forum thread](https://forum.openwrt.org/t/finally-installed-openwrt-on-my-google-wifi-ac-1304/183541), [the OpenWrt wiki page for Gale](https://openwrt.org/toh/google/wifi)) is simple:
@@ -147,6 +150,9 @@ At this point I stopped, wrote it all up, and pushed a commit titled "software p
 Then, mostly out of curiosity, I asked Claude what a write-protect screw actually does.
 
 ## the screw
+
+![Google WiFi Gale PCB. Yellow box: SW7 recovery switch. Red box: WP screw with conductive washer next to the H1 chip.](/assets/img/post-puck/google-wifi-pcb.jpg)
+*Gale PCB with the bottom plate off. **Yellow box: SW7**, the recovery switch you press during the boot dance. **Red box: WP screw**, the silver one with the conductive washer next to the H1. Image: [OpenWrt wiki](https://openwrt.org/toh/google/wifi), CC BY-SA 4.0 — annotations by the wiki, not me.*
 
 Chromebooks have [a hardware write-protect mechanism](https://chromium.googlesource.com/chromiumos/docs/+/HEAD/write_protection.md) that ties the SPI flash chip's WP# pin to a screw on the mainboard. Screw in plus its conductive washer bridging some pads means WP# is asserted means firmware writes blocked. Screw out means writes allowed. Claude was confident even with the screw out, the SuzyQ SPI bridge would still be locked by CCD, so removing the screw alone wouldn't help. I'd still need the CH341A. Which is half right.
 
