@@ -51,6 +51,7 @@ Short posts, starting during Hacker School batch [2] and trailing off through 20
 - [j2labs / fibonacci pigeons](https://web.archive.org/web/2014/http://foobarmustache.tumblr.com/post/22192871946/j2labs-fibonacci-pigeons-from-these-awesome)
 - [May 2012 "Who's Hiring" on Hacker News](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/22195705381/may-2012-whos-hiring-on-hacker-news)
 - [Rails lolwat](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/28060299443/rails-lolwat) &mdash; July 2012
+- ["No really, this blog I'll maintain."](https://web.archive.org/web/20150316193049/http://foobarmustache.tumblr.com/post/28485873469) &mdash; August 2012
 - [Maintenance of my application](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/31541520481/maintenance-of-my-application) &mdash; September 2012
 - [Couchbase tuning](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/46853162739/couchbase-tuning) &mdash; April 2013
 - [You should feel like a dilettante](https://web.archive.org/web/2015/http://foobarmustache.tumblr.com/post/91967027979/you-should-feel-like-a-dilettante) &mdash; July 2014
