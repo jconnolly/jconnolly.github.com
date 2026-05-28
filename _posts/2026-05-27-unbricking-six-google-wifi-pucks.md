@@ -50,7 +50,10 @@ Sat with that for a few days. Then I bought the cable.
 
 [SuzyQ](https://chromium.googlesource.com/chromiumos/third_party/hdctools/+/HEAD/docs/ccd.md) (sometimes "SuzyQable"). Passive USB-A to USB-C adapter with very specific resistors on the CC lines. Plug the USB-C end into a compatible target's USB-C port and the resistors flip it into "Debug Accessory Mode" so the target exposes itself as a USB device with bulk endpoints for the on-board debug consoles. Google uses the same trick on Chromebooks, so all the documentation is Chromebook-centric.
 
-Bought one from a seller called `chocolateloverraj` on eBay, $7.32 shipped. [Same person publishes the open hardware on GitHub](https://github.com/ChocolateLoverRaj/gsc-debug-board), 2,197 sold at the time I ordered. Shows up two days later in a tiny envelope. Something deeply satisfying about a piece of debug hardware that fits in your palm.
+Bought one from [a seller called `chocolateloverraj` on eBay](https://www.ebay.com/itm/316024978790), $7.32 shipped. [Same person publishes the open hardware on GitHub](https://github.com/ChocolateLoverRaj/gsc-debug-board), 2,197 sold at the time I ordered. Shows up two days later in a tiny envelope. Something deeply satisfying about a piece of debug hardware that fits in your palm.
+
+![ChocolateLoverRaj GSC Debug Board v4.1.0 — USB-C on the left (puck-side), USB-A on the right (Mac-side), four bias resistors on the CC lines in the middle.](/assets/img/post-puck/suzyq.webp)
+*The cable, "GSC Debug Board v4.1.0 (Dec 19 2023)". USB-C left, USB-A right, the four resistors in the middle are what trick the puck into Debug Accessory Mode. Image: [chocolateloverraj's eBay listing](https://www.ebay.com/itm/316024978790).*
 
 The puck has one USB-C port so the SuzyQ shares it with power. The cable provides 500 mA at 5V over the USB-A side and that's enough to boot the puck on its own. Blue LED, no separate brick.
 
