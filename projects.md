@@ -21,3 +21,7 @@ Selected recent work. Full list at [github.com/jconnolly](https://github.com/jco
 ## Other recent
 
 **[constradoak-vacation-hunter](https://github.com/jconnolly/constradoak-vacation-hunter)** &middot; 2027 Presidents Day family vacation hunter &mdash; destination research, airfare playbook, automated fare-watch monitoring notes.
+
+## Earlier (and ancient)
+
+**Grim et al., "Reducing Prejudice"** *(MIT Press, Artificial Life IX, 2004)* &middot; Co-author on a spatialized game-theoretic model of the contact hypothesis &mdash; agent-based simulation of prejudice reduction, done at SUNY Stony Brook under Patrick Grim. Full cite + artifacts on the [about page](/about/#writing). Currently dusting these off and porting the figures forward.
