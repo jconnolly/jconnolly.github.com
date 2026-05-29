@@ -259,6 +259,23 @@ img {
 h2 .section-marker, h3 .section-marker {
   margin-top: 0;
 }
+.moma-video {
+  margin: 1.5rem 0 2rem;
+}
+.moma-video video {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: #111;
+  display: block;
+}
+.moma-video figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
 .etalia-strip {
   margin: 2.5rem 0;
   text-align: center;

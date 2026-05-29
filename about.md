@@ -46,6 +46,16 @@ A handful of posts from a previous internet life, surfaced via the Wayback Machi
 
 Hardware and Linux notes from my time at Bug Labs &mdash; OSGi, the BUG modular hardware platform, OMAP kernels, audio servers, and the gear-tweaking that came with it. The original `community.buglabs.net` is gone.
 
+**[MoMA *Talk to Me* (2011)](https://www.moma.org/interactives/exhibitions/2011/talktome/objects/146377/)** &mdash; wrote Processing color-tracking code targeting the BUG hardware platform at Bug Labs, in collaboration with [Jer Thorp](https://www.jerthorp.me/). The BUG was exhibited in *Talk to Me* (Jul&ndash;Nov 2011); my [*Processing &amp; BUG*](https://web.archive.org/web/20110604060244/http://community.buglabs.net/jconnolly/posts/246-Processing-BUG) post on the Bug Labs community blog (tagged `processing BUG java dataviz moma`) is the technical writeup. Archived code: [ColorClusters](https://github.com/jconnolly/ColorClusters).
+
+<figure class="moma-video">
+  <video controls preload="metadata" poster="/assets/video/moma-talktome-bug-poster.jpg" playsinline>
+    <source src="/assets/video/moma-talktome-bug.mp4" type="video/mp4">
+    Your browser doesn't support embedded video. <a href="/assets/video/moma-talktome-bug.mp4">Download the MP4</a>.
+  </video>
+  <figcaption>MoMA's <em>Talk to Me</em> demo of the BUG hardware, 2011 (silent, 3:50). The green overlay is the Processing color-tracking sketch I wrote. Preserved from MoMA's original <code>146377_BugLabs.m4v</code>.</figcaption>
+</figure>
+
 - [MotherBUG: Bigger, Badder, Unplugged](https://web.archive.org/web/20100529220812/http://community.buglabs.net/jconnolly/posts/27-MotherBUG-Bigger-Badder-Unplugged)
 - [MotherBUG + Von Hippel + Arduino Mini + Servo Motor](https://web.archive.org/web/20081208055309/http://community.buglabs.net/jconnolly/posts/35-MotherBUG-Von-Hippel-Arduino-Mini-Servo-Motor) &mdash; Dec 2008
 - [building JNI bundles](https://web.archive.org/web/20090126140205/http://community.buglabs.net/jconnolly/posts/71-building-JNI-bundles) &mdash; Jan 2009
