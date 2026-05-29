@@ -4,6 +4,7 @@ title: "I spent a day trying to make a Pi 5 a local LLM appliance, then found a 
 date: 2026-05-28 12:00:00 -0400
 categories: [ai, llm]
 tags: [llm, ollama, qwen3, raspberry-pi, hailo, claude-code, local-ai, mcp, swe-bench]
+image: /assets/img/og/local-llm-pi5-vs-macbook.png
 description: >
   A real-time investigation log. Pi 5 16GB + Hailo-10H AI HAT+ vs.
   a 2023 MacBook Air M2 as Claude Code backends over the LAN.

@@ -11,7 +11,7 @@ author:
 url: "https://ollyconn.com"
 baseurl: ""
 
-image: /assets/img/sbu/sprawl.jpg
+image: /assets/img/og/default.png
 twitter:
   card: summary_large_image
 
@@ -34,7 +34,7 @@ plugins:
 
 show_excerpts: true
 
-now_building: "local LLM stack on a Pi 5 + Hailo NPU vs. a spare MacBook. <a href='/2026/05/28/local-llm-pi5-vs-macbook/'>writeup landing soon</a>."
+now_building: "an opt-in-cloud Claude Code router pointing at a local qwen3:14b on a spare MacBook. companion post to the <a href='/2026/05/28/local-llm-pi5-vs-macbook/'>Pi5 piece</a> is next."
 
 exclude:
   - Gemfile

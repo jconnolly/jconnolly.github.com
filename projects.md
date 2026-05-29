@@ -2,6 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
+image: /assets/img/og/projects.png
 ---
 
 Selected recent work. Full list at [github.com/jconnolly](https://github.com/jconnolly).

@@ -2,6 +2,7 @@
 layout: page
 title: resume
 permalink: /resume/
+image: /assets/img/og/resume.png
 ---
 
 [Download PDF](/assets/files/john-connolly-resume.pdf) &middot; [LinkedIn](https://www.linkedin.com/in/jeconnol) &middot; [GitHub](https://github.com/jconnolly)

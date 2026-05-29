@@ -2,6 +2,7 @@
 layout: page
 title: about
 permalink: /about/
+image: /assets/img/og/about.png
 ---
 
 <figure class="about-hero">
@@ -15,9 +16,11 @@ Currently Lead Product Engineer at [Data Society](https://datasociety.com), buil
 
 This blog is mostly notes I take while working on something I want to remember the shape of later, occasionally polished into something readable. Currently posting after a hiatus that lasted longer than I'd care to admit.
 
-You can find me on [GitHub](https://github.com/jconnolly) and [LinkedIn](https://www.linkedin.com/in/jeconnol). For everything else, the username is usually `ollyconn`.
+You can find me on [GitHub](https://github.com/jconnolly) and [LinkedIn](https://www.linkedin.com/in/jeconnol). For everything else, the username is usually `ollyconn`. I read email at `john` at this domain.
 
 I went through [Hacker School](https://www.recurse.com) (now the [Recurse Center](https://www.recurse.com/about)) in batch [2], winter 2012.
+
+If you're working on something at the intersection of LLM platforms, MCP, or local-first AI infra and want to compare notes, the email address above is the best path.
 
 <h2><img class="section-marker" src="/assets/img/sbu/neuron.gif" alt="microscope image of a single neuron"> writing</h2>
 
