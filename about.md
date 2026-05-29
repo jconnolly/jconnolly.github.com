@@ -25,7 +25,7 @@ I went through [Hacker School](https://www.recurse.com) (now the [Recurse Center
 
 **Grim, P., Selinger, E., Braynen, W., Rosenberger, R., Au, R., Louie, N., & Connolly, J. (2004).** *Reducing Prejudice: A Spatialized Game-Theoretic Model for the Contact Hypothesis.* In **Artificial Life IX: Proceedings of the Ninth International Conference on the Simulation and Synthesis of Living Systems**, pp. 244&ndash;250. MIT Press. ISBN 0-262-66183-7.
 
-&middot; [MIT Press chapter](https://direct.mit.edu/books/oa-edited-volume/4339/Artificial-Life-IXProceedings-of-the-Ninth) &middot; [Open-access PDF](https://philarchive.org/archive/GRIRPA-9) &middot; [Interactive figures + animations](https://pgrim.org/mpr/) &middot; [NetLogo reimplementation](https://github.com/wbraynen/PrejudiceReduction)
+&middot; [MIT Press chapter](https://direct.mit.edu/books/oa-edited-volume/4339/Artificial-Life-IXProceedings-of-the-Ninth) &middot; [Open-access PDF](https://philarchive.org/archive/GRIRPA-9) &middot; [Original figures + animations](https://pgrim.org/mpr/) &middot; [**Interactive port on this site**](/grim/) &middot; [NetLogo reimplementation by Braynen](https://github.com/wbraynen/PrejudiceReduction)
 
 A spatialized agent-based game-theoretic model of Allport's contact hypothesis &mdash; the only major theory of prejudice *reduction* in social psychology &mdash; tested across a large array of agents. Results support the hypothesis and suggest a deeper mechanism than the appeals to conceptual re-organization that dominated the prior literature. Done at SUNY Stony Brook's Group for Logic and Formal Semantics under Dr. Patrick Grim.
 

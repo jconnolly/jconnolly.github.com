@@ -1,0 +1,400 @@
+---
+layout: default
+title: prejudice reduction — interactive
+permalink: /grim/
+description: >
+  Browser reimplementation of the spatialized game-theoretic model
+  from Grim et al. 2004 (Artificial Life IX). 64x64 toroidal grid
+  of agents playing iterated Prisoner's Dilemma in 9 strategies,
+  one of which is prejudicial. Twenty-two years later, in JavaScript.
+---
+
+<style>
+  .grim-wrap { max-width: 100%; }
+  .grim-canvas-row { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; margin: 1.5rem 0; }
+  #grim-canvas { background: #111; border-radius: 4px; image-rendering: pixelated; cursor: crosshair; }
+  .grim-controls { min-width: 260px; flex: 1; }
+  .grim-controls label { display: block; margin-bottom: 0.8rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .grim-controls input[type=range] { width: 100%; }
+  .grim-controls input[type=number], .grim-controls select { width: 100%; padding: 0.3rem; font-family: var(--mono); font-size: 0.9rem; background: var(--code-bg-inline); color: var(--ink); border: 1px solid var(--rule); border-radius: 3px; }
+  .grim-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+  .grim-btns button {
+    flex: 1; min-width: 70px;
+    padding: 0.5rem 0.8rem;
+    font-family: var(--mono); font-size: 0.85rem;
+    background: var(--code-bg-inline); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 3px;
+    cursor: pointer;
+  }
+  .grim-btns button:hover { border-color: var(--accent); color: var(--accent); }
+  .grim-btns button.primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .grim-stats { margin: 1rem 0; padding: 0.8rem 1rem; background: var(--code-bg-inline); border-left: 2px solid var(--accent); font-family: var(--mono); font-size: 0.85rem; }
+  .grim-stats div { margin: 0.15rem 0; }
+  .grim-stats span { color: var(--accent); font-weight: 600; }
+  .grim-legend { font-size: 0.78rem; color: var(--ink-soft); margin-top: 1rem; }
+  .grim-legend ul { list-style: none; padding: 0; margin: 0.3rem 0; }
+  .grim-legend li { display: flex; align-items: center; gap: 0.4rem; margin: 0.15rem 0; }
+  .grim-legend .swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; flex-shrink: 0; }
+  details.grim-details { margin: 2rem 0; }
+  details.grim-details summary { cursor: pointer; font-weight: 600; padding: 0.4rem 0; }
+</style>
+
+<article>
+  <header class="post-header">
+    <h1>prejudice reduction, twenty-two years later</h1>
+    <p class="post-meta">an in-browser reimplementation of <a href="/about/#writing">Grim et al. 2004</a></p>
+  </header>
+
+  <p>A 64x64 toroidal grid of agents. Each agent has a <strong>color</strong> (red or green, fixed) and a <strong>strategy</strong> (one of nine). Every generation each agent plays 200 rounds of iterated Prisoner's Dilemma with each of its eight Moore-neighborhood neighbors, totals its score, and then adopts the highest-scoring neighbor's strategy. Colors never change; strategies do.</p>
+
+  <p>Eight of the nine strategies are <em>color-blind</em>. The ninth is <strong>PTFT</strong> (Prejudicial Tit-for-Tat) — it plays Tit-for-Tat against same-color neighbors and All-Defect against other-color ones. The question the paper asks: across different starting configurations of red and green, does prejudice (PTFT) survive?</p>
+
+  <p>The paper's answer: integrated arrangements reliably wipe PTFT out within a few hundred generations. Segregated arrangements do not. So the original animations on <a href="https://pgrim.org/mpr/">pgrim.org/mpr/</a> were rendered to .gif in 2004 and have not moved since. Here they are running in your browser, in a port that respects everything I remember and tries not to lie about anything I don't.</p>
+
+  <div class="grim-wrap">
+    <div class="grim-canvas-row">
+      <canvas id="grim-canvas" width="384" height="384"></canvas>
+      <div class="grim-controls">
+        <label>
+          initial configuration
+          <select id="cfg-init">
+            <option value="integrated">integrated (random colors)</option>
+            <option value="segregated" selected>segregated (two halves)</option>
+            <option value="quadrants">quadrants (4 blocks)</option>
+            <option value="stripes">stripes</option>
+            <option value="islands">red islands in green sea</option>
+          </select>
+        </label>
+        <label>
+          red fraction <span id="cfg-redfrac-v">50</span>%
+          <input type="range" id="cfg-redfrac" min="10" max="90" value="50">
+        </label>
+        <label>
+          initial PTFT fraction <span id="cfg-ptftfrac-v">15</span>%
+          <input type="range" id="cfg-ptftfrac" min="0" max="100" value="15">
+        </label>
+        <label>
+          speed (gen/sec) <span id="cfg-speed-v">5</span>
+          <input type="range" id="cfg-speed" min="1" max="60" value="5">
+        </label>
+        <label>
+          color cells by
+          <select id="cfg-display">
+            <option value="strategy" selected>strategy</option>
+            <option value="group">group (red/green)</option>
+            <option value="prejudice">prejudice (PTFT vs not)</option>
+          </select>
+        </label>
+        <div class="grim-btns">
+          <button id="btn-play" class="primary">play</button>
+          <button id="btn-step">step</button>
+          <button id="btn-reset">reset</button>
+        </div>
+        <div class="grim-stats">
+          <div>generation: <span id="stat-gen">0</span></div>
+          <div>PTFT (prejudicial): <span id="stat-ptft">—</span></div>
+          <div>TFT: <span id="stat-tft">—</span></div>
+          <div>All-Defect: <span id="stat-alld">—</span></div>
+          <div>avg score: <span id="stat-avg">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grim-legend">
+      <strong>nine strategies (i, c, d coding):</strong>
+      <ul>
+        <li><span class="swatch" style="background:#1f1f1f"></span> <code>&lt;0,0,0&gt;</code> All-Defect</li>
+        <li><span class="swatch" style="background:#7a3b1a"></span> <code>&lt;0,0,1&gt;</code> Suspicious Perverse</li>
+        <li><span class="swatch" style="background:#3b6db5"></span> <code>&lt;0,1,0&gt;</code> Suspicious TFT</li>
+        <li><span class="swatch" style="background:#3ea88f"></span> <code>&lt;0,1,1&gt;</code> D-then-All-Cooperate</li>
+        <li><span class="swatch" style="background:#c98d22"></span> <code>&lt;1,0,0&gt;</code> C-then-All-Defect</li>
+        <li><span class="swatch" style="background:#9d4cb5"></span> <code>&lt;1,0,1&gt;</code> Perverse</li>
+        <li><span class="swatch" style="background:#4fb649"></span> <code>&lt;1,1,0&gt;</code> Tit-for-Tat (TFT)</li>
+        <li><span class="swatch" style="background:#e2e2dd"></span> <code>&lt;1,1,1&gt;</code> All-Cooperate</li>
+        <li><span class="swatch" style="background:#e53935"></span> <strong>PTFT</strong> (Prejudicial TFT)</li>
+      </ul>
+      <p>i = initial move, c = response to cooperation last round, d = response to defection. 0 = defect, 1 = cooperate.</p>
+    </div>
+  </div>
+
+  <details class="grim-details">
+    <summary>algorithm + payoff matrix</summary>
+    <p>Each agent plays 200 rounds of iterated Prisoner's Dilemma with each of its 8 Moore-neighborhood neighbors per generation, using the standard payoff matrix:</p>
+    <table>
+      <tr><th></th><th>opponent cooperates</th><th>opponent defects</th></tr>
+      <tr><th>you cooperate</th><td>3</td><td>0</td></tr>
+      <tr><th>you defect</th><td>5</td><td>1</td></tr>
+    </table>
+    <p>After each generation, each cell looks at its 8 neighbors and adopts the strategy of the highest-scoring one. Ties broken randomly. The whole grid updates synchronously. The grid is toroidal (wraps at edges). 4096 cells × 8 neighbors × 200 rounds = ~6.5M PD payoff lookups per generation, which is fast in modern V8.</p>
+    <p>Differences from the 2004 paper: I round the 200-round PD outcome by closed-form table lookup against the strategy pair, not by simulating each of the 200 rounds. The outer behavior is identical for reactive strategies; perfect rounding is preserved against ties. The original Java applet simulated each round.</p>
+  </details>
+
+  <p style="color: var(--ink-soft); font-size: 0.85rem; margin-top: 3rem;">If this drove you to the original paper, that's the point. Full cite, MIT Press chapter link, open-access PDF, NetLogo reimplementation, and the original GIF animations are all on the <a href="/about/#writing">about page</a>. The source for this canvas demo is in this site's repo at <code>/grim.html</code> — no build step, just HTML and a single self-contained script.</p>
+</article>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------- model ----------
+
+  const N = 64;                       // grid edge
+  const STRATEGIES = 9;
+  const PTFT = 8;                     // index of prejudicial TFT
+
+  // strategy bits: { initial, respCoop, respDefect } for color-blind strategies 0..7
+  // index = (initial << 2) | (respCoop << 1) | respDefect
+  // PTFT (8) is handled specially in payoff().
+
+  // pre-compute the per-pair 200-round payoff totals.
+  // P[a][b][colorMatch?1:0] -> { selfScore, oppScore } for 200 rounds.
+  const PAIR = new Float32Array(STRATEGIES * STRATEGIES * 2 * 2);
+  function idx(a, b, sameColor) { return ((a * STRATEGIES + b) * 2 + sameColor) * 2; }
+
+  function play200(stratA, stratB, sameColor) {
+    // simulate 200 rounds of reactive strategies for closed-form
+    const aInit = (stratA === PTFT) ? 1 : (stratA >> 2) & 1;
+    const aC = (stratA === PTFT) ? 1 : (stratA >> 1) & 1;
+    const aD = (stratA === PTFT) ? 0 : stratA & 1;
+    const bInit = (stratB === PTFT) ? 1 : (stratB >> 2) & 1;
+    const bC = (stratB === PTFT) ? 1 : (stratB >> 1) & 1;
+    const bD = (stratB === PTFT) ? 0 : stratB & 1;
+    // PTFT plays All-Defect against the other color
+    const aIsPrej = stratA === PTFT && !sameColor;
+    const bIsPrej = stratB === PTFT && !sameColor;
+
+    let lastA, lastB;
+    let scoreA = 0, scoreB = 0;
+    // round 1: initial moves
+    let mA = aIsPrej ? 0 : aInit;
+    let mB = bIsPrej ? 0 : bInit;
+    const PAY = [[3, 0], [5, 1]]; // PAY[myMove][oppMove] - row is mine, col is opp. cooperate=1 confusing — easier: PAY[meDefect][oppDefect]
+    // we'll just inline the matrix
+    function pay(my, opp) {
+      // my, opp ∈ {0=defect, 1=cooperate}
+      if (my === 1 && opp === 1) return 3;
+      if (my === 1 && opp === 0) return 0;
+      if (my === 0 && opp === 1) return 5;
+      return 1;
+    }
+    scoreA += pay(mA, mB);
+    scoreB += pay(mB, mA);
+    lastA = mA; lastB = mB;
+    for (let r = 1; r < 200; r++) {
+      mA = aIsPrej ? 0 : (lastB === 1 ? aC : aD);
+      mB = bIsPrej ? 0 : (lastA === 1 ? bC : bD);
+      scoreA += pay(mA, mB);
+      scoreB += pay(mB, mA);
+      lastA = mA; lastB = mB;
+    }
+    return [scoreA, scoreB];
+  }
+
+  for (let a = 0; a < STRATEGIES; a++) {
+    for (let b = 0; b < STRATEGIES; b++) {
+      for (let sc = 0; sc < 2; sc++) {
+        const [sa, sb] = play200(a, b, sc === 1);
+        const k = idx(a, b, sc);
+        PAIR[k] = sa;
+        PAIR[k + 1] = sb;
+      }
+    }
+  }
+
+  // ---------- state ----------
+
+  let strat = new Uint8Array(N * N);
+  let color = new Uint8Array(N * N); // 0 = green, 1 = red
+  let nextStrat = new Uint8Array(N * N);
+  let score = new Float32Array(N * N);
+  let gen = 0;
+
+  function randInt(n) { return Math.floor(Math.random() * n); }
+  function rndStrategy(ptftFrac) {
+    if (Math.random() < ptftFrac) return PTFT;
+    return randInt(8); // uniform across color-blind
+  }
+
+  function reset() {
+    gen = 0;
+    const cfg = document.getElementById('cfg-init').value;
+    const redFrac = +document.getElementById('cfg-redfrac').value / 100;
+    const ptftFrac = +document.getElementById('cfg-ptftfrac').value / 100;
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        const i = y * N + x;
+        let red = 0;
+        if (cfg === 'integrated') {
+          red = Math.random() < redFrac ? 1 : 0;
+        } else if (cfg === 'segregated') {
+          red = x < Math.floor(N * redFrac) ? 1 : 0;
+        } else if (cfg === 'quadrants') {
+          const top = y < N / 2;
+          const left = x < N / 2;
+          red = (top === left) ? 1 : 0;
+        } else if (cfg === 'stripes') {
+          red = (Math.floor(x / 8) % 2) === 0 ? 1 : 0;
+        } else if (cfg === 'islands') {
+          // small red blobs in a green field
+          const cx = N / 2, cy = N / 2;
+          const d = Math.hypot(x - cx, y - cy);
+          red = d < N * 0.12 ? 1 : (Math.random() < 0.02 ? 1 : 0);
+        }
+        color[i] = red;
+        strat[i] = rndStrategy(ptftFrac);
+      }
+    }
+    render();
+    updateStats();
+  }
+
+  // toroidal indexing
+  function tor(v) { return (v + N) % N; }
+
+  function step() {
+    // 1. score every cell against its 8 neighbors
+    for (let i = 0; i < N * N; i++) score[i] = 0;
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        const i = y * N + x;
+        const sa = strat[i];
+        const ca = color[i];
+        // sum payoffs from the 8 neighbors
+        for (let dy = -1; dy <= 1; dy++) {
+          for (let dx = -1; dx <= 1; dx++) {
+            if (dx === 0 && dy === 0) continue;
+            const nx = tor(x + dx);
+            const ny = tor(y + dy);
+            const ni = ny * N + nx;
+            const sb = strat[ni];
+            const cb = color[ni];
+            const same = ca === cb ? 1 : 0;
+            const k = idx(sa, sb, same);
+            score[i] += PAIR[k];
+          }
+        }
+      }
+    }
+
+    // 2. each cell adopts highest-scoring neighbor's strategy (incl. self)
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        const i = y * N + x;
+        let bestScore = score[i];
+        let bestStrats = [strat[i]];
+        for (let dy = -1; dy <= 1; dy++) {
+          for (let dx = -1; dx <= 1; dx++) {
+            if (dx === 0 && dy === 0) continue;
+            const ni = tor(y + dy) * N + tor(x + dx);
+            if (score[ni] > bestScore) {
+              bestScore = score[ni];
+              bestStrats = [strat[ni]];
+            } else if (score[ni] === bestScore) {
+              bestStrats.push(strat[ni]);
+            }
+          }
+        }
+        nextStrat[i] = bestStrats.length === 1
+          ? bestStrats[0]
+          : bestStrats[randInt(bestStrats.length)];
+      }
+    }
+    [strat, nextStrat] = [nextStrat, strat];
+    gen++;
+    render();
+    updateStats();
+  }
+
+  // ---------- render ----------
+
+  const canvas = document.getElementById('grim-canvas');
+  const ctx = canvas.getContext('2d');
+  const cell = canvas.width / N; // 384/64 = 6
+
+  const STRAT_COLOR = [
+    '#1f1f1f', // 000 All-Defect
+    '#7a3b1a', // 001 Suspicious Perverse
+    '#3b6db5', // 010 Suspicious TFT
+    '#3ea88f', // 011 D-then-All-Cooperate
+    '#c98d22', // 100 C-then-All-Defect
+    '#9d4cb5', // 101 Perverse
+    '#4fb649', // 110 Tit-for-Tat
+    '#e2e2dd', // 111 All-Cooperate
+    '#e53935'  // PTFT
+  ];
+
+  function render() {
+    const mode = document.getElementById('cfg-display').value;
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        const i = y * N + x;
+        if (mode === 'strategy') {
+          ctx.fillStyle = STRAT_COLOR[strat[i]];
+        } else if (mode === 'group') {
+          ctx.fillStyle = color[i] === 1 ? '#c45c4a' : '#5fa86c';
+        } else { // prejudice
+          ctx.fillStyle = strat[i] === PTFT ? '#e53935' : '#222';
+        }
+        ctx.fillRect(x * cell, y * cell, cell, cell);
+        if (mode === 'strategy') {
+          // tiny corner dot indicating group
+          ctx.fillStyle = color[i] === 1 ? 'rgba(220,60,40,0.85)' : 'rgba(80,180,80,0.85)';
+          ctx.fillRect(x * cell, y * cell, 1, 1);
+        }
+      }
+    }
+  }
+
+  // ---------- stats ----------
+
+  function updateStats() {
+    const counts = new Array(STRATEGIES).fill(0);
+    let totalScore = 0;
+    for (let i = 0; i < N * N; i++) { counts[strat[i]]++; totalScore += score[i]; }
+    document.getElementById('stat-gen').textContent = gen;
+    document.getElementById('stat-ptft').textContent = (100 * counts[PTFT] / (N * N)).toFixed(1) + '%';
+    document.getElementById('stat-tft').textContent = (100 * counts[6] / (N * N)).toFixed(1) + '%';
+    document.getElementById('stat-alld').textContent = (100 * counts[0] / (N * N)).toFixed(1) + '%';
+    document.getElementById('stat-avg').textContent = gen === 0 ? '—' : (totalScore / (N * N)).toFixed(1);
+  }
+
+  // ---------- loop ----------
+
+  let playing = false;
+  let lastStep = 0;
+  function loop(ts) {
+    if (playing) {
+      const speed = +document.getElementById('cfg-speed').value;
+      const interval = 1000 / speed;
+      if (ts - lastStep > interval) {
+        step();
+        lastStep = ts;
+      }
+      requestAnimationFrame(loop);
+    }
+  }
+
+  document.getElementById('btn-play').addEventListener('click', (e) => {
+    playing = !playing;
+    e.target.textContent = playing ? 'pause' : 'play';
+    if (playing) requestAnimationFrame(loop);
+  });
+  document.getElementById('btn-step').addEventListener('click', step);
+  document.getElementById('btn-reset').addEventListener('click', reset);
+
+  // slider value labels
+  ['cfg-redfrac', 'cfg-ptftfrac', 'cfg-speed'].forEach(id => {
+    const el = document.getElementById(id);
+    const out = document.getElementById(id + '-v');
+    el.addEventListener('input', () => { out.textContent = el.value; });
+  });
+
+  document.getElementById('cfg-init').addEventListener('change', reset);
+  document.getElementById('cfg-redfrac').addEventListener('change', reset);
+  document.getElementById('cfg-ptftfrac').addEventListener('change', reset);
+  document.getElementById('cfg-display').addEventListener('change', render);
+
+  // boot
+  reset();
+})();
+</script>
