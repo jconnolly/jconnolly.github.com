@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ConnOS</title>
+<meta name="description" content="ConnOS is the Connolly family's own operating system: one place for who's doing what, when. Coming soon.">
+<meta property="og:title" content="ConnOS">
+<meta property="og:description" content="The Connolly family's own operating system. Coming soon.">
+<link rel="icon" href="/connos/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root {
+  --ink: #0d1a1e; --deep: #13252b; --shelf: #1c3238; --pearl: #ece4d6; --sand: #a9a092; --tide: #6cc2b0;
+  --display: "Gloock", Georgia, serif; --body: "Atkinson Hyperlegible", -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root {
+  --ink: #f4efe6; --deep: #fffaf2; --shelf: #e4dccd; --pearl: #14262b; --sand: #5b6a66; --tide: #1f8a78; color-scheme: light; } }
+* { box-sizing: border-box }
+html { background: var(--ink) }
+body { margin: 0; background: var(--ink); color: var(--pearl); font: 18px/1.6 var(--body); padding-inline: 20px; padding-block: 0 72px }
+main { max-width: 760px; margin: 0 auto; display: grid; gap: 64px }
+h1, h2 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance }
+p { margin: 0 }
+a { color: var(--tide) }
+.top { display: flex; justify-content: space-between; align-items: center; padding-block: 20px 0; font-size: 15px }
+.top a { color: var(--sand); text-decoration: none }
+.hero { display: grid; gap: 22px; justify-items: start; padding-top: 24px }
+.mark { width: 112px; height: 112px; border-radius: 26px; overflow: hidden; box-shadow: 0 20px 50px -24px rgba(0,0,0,.6) }
+.mark img { width: 100%; height: 100%; display: block }
+.pill { font: 700 13px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--tide); border: 1px solid var(--shelf); border-radius: 999px; padding: 6px 12px }
+h1 { font-size: clamp(46px, 9vw, 76px); line-height: 1 }
+.lede { font-size: 21px; color: var(--sand); max-width: 34ch }
+section { display: grid; gap: 18px }
+h2 { font-size: 32px }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px }
+.card { background: var(--deep); border-radius: 18px; padding: 20px; display: grid; gap: 8px }
+.card b { font-size: 18px }
+.card p { color: var(--sand); font-size: 16px }
+.say { font-family: var(--display); font-size: 22px; line-height: 1.35; border-left: 3px solid var(--tide); padding-left: 16px }
+.say span { display: block; font: 15px var(--body); color: var(--sand); margin-top: 6px }
+ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--sand) }
+ul b { color: var(--pearl) }
+footer { color: var(--sand); font-size: 15px; border-top: 1px solid var(--shelf); padding-top: 20px }
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><a href="/">← ollyconn.com</a><span style="color:var(--sand)">A family project</span></div>
+
+  <section class="hero">
+    <div class="mark"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" role="img" aria-label="ConnOS shell"><rect width="1024" height="1024" fill="#0d1a1e"/><g transform="translate(0,-40)"><path d="M428.9,752.0 L122.3,575.0 Q121.1,488.3 205.9,470.1 Q230.3,386.9 316.8,394.6 Q364.6,322.2 444.9,355.0 Q512.0,300.0 579.1,355.0 Q659.4,322.2 707.2,394.6 Q793.7,386.9 818.1,470.1 Q902.9,488.3 901.7,575.0 L595.1,752.0 A96,96 0 0 0 428.9,752.0 Z" fill="#ece4d6"/><g stroke="#0d1a1e" stroke-width="16" stroke-linecap="butt"><path d="M467.1,751.6 L185.5,448.1"/><path d="M483.4,740.5 L303.7,367.5"/><path d="M502.2,734.7 L440.5,325.4"/><path d="M521.8,734.7 L583.5,325.4"/><path d="M540.6,740.5 L720.3,367.5"/><path d="M556.9,751.6 L838.5,448.1"/></g><path d="M340,742 L442,784 L582,784 L684,742 L684,834 L340,834 Z" fill="#ece4d6"/><path d="M440,784 L584,784" stroke="#0d1a1e" stroke-width="16"/></g></svg></div>
+    <span class="pill">Coming soon</span>
+    <h1>ConnOS</h1>
+    <p class="lede">Our family's own operating system. One place for who's doing what, and when.</p>
+  </section>
+
+  <section>
+    <h2>What it is</h2>
+    <p>Running a family is a lot of small handoffs: pickups, playdates, school forms, birthdays, groceries, trips. Most of it lives in our heads, our texts and five different calendars, and things slip. ConnOS is something John is building for our family so they don't.</p>
+    <div class="grid">
+      <div class="card"><b>Say it once</b><p>"Hey Siri, add to ConnOS: playdate Saturday at 4." It lands on the family calendar with an owner.</p></div>
+      <div class="card"><b>Everything has an owner</b><p>Every to-do belongs to one person, and the right person gets a gentle nudge, not everyone.</p></div>
+      <div class="card"><b>It reads the flyer</b><p>Snap a school flyer; dates go on the calendar and the to-dos get split out.</p></div>
+      <div class="card"><b>The kids are in on it</b><p>"Alexa, ask ConnOS what I'm doing after school." Chores, badges, and a treat at the end of the week.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it sounds like</h2>
+    <p class="say">"Added the sleepover, Friday at 6, to the family calendar. Does she need a sleeping bag?"<span>ConnOS, after one sentence to Siri</span></p>
+  </section>
+
+  <section>
+    <h2>For the rest of the family</h2>
+    <ul>
+      <li><b>Grandparents, aunts, uncles:</b> down the road you'll be able to see the kids' schedule when they're staying with you, and get a heads-up for birthdays and school events you'd want to know about.</li>
+      <li><b>Your own family:</b> if it works for us, we'd like to set it up for you too. Each family gets its own private space.</li>
+      <li><b>Nothing to do yet.</b> We're testing it on ourselves first.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Private by design</h2>
+    <p>ConnOS runs on our own private cloud, not someone else's product. The data is ours, it's encrypted, nobody else sees it, and the AI parts never send or buy anything without one of us saying yes.</p>
+  </section>
+
+  <footer>ConnOS is a family project by John Connolly. Questions? Just ask John.</footer>
+</main>
+</body>
+</html>
