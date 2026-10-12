@@ -44,3 +44,6 @@ exclude:
   - node_modules/
   - .sass-cache/
   - .jekyll-cache/
+
+include:
+  - .well-known
