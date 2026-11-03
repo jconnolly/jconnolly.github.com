@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "i'm a product engineer now. mostly i wait."
-date: 2026-11-03 09:00:00 -0500
+date: 2026-11-03 07:30:00 -0500
 categories: [ai, engineering]
 tags: [agents, claude-code, product-engineering, devx, formal-methods, inner-loop, outer-loop]
 description: >
